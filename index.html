@@ -250,6 +250,225 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/05/Apply-SQL-XML-Path/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Harold Yin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Harold's Zone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/05/Apply-SQL-XML-Path/" itemprop="url">Apply SQL XML Path</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-05T10:40:58+08:00">
+                2019-12-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Development/" itemprop="url" rel="index">
+                    <span itemprop="name">Development</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Development/SQL/" itemprop="url" rel="index">
+                    <span itemprop="name">SQL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/12/05/Apply-SQL-XML-Path/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/12/05/Apply-SQL-XML-Path/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/12/05/Apply-SQL-XML-Path/" class="leancloud_visitors" data-flag-title="Apply SQL XML Path">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  411
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>Recently, I was working on a project. The aim of this project is to display the synonym names for one chemical. So I asked the DB team to create a new table called the ltbChemical_SynonymName.This table is used to store all synonym Names for a chemical and it is connected with ltbChemical Table via Chemical ID. </p>
+<p>Also there is a gap between our two different apps.  We have an internal tool to import data from an app to another app which can ensure all the data should be correct and unique. For Result Page, we need display all the synonym name in one column which  contradicts the format of the database output.  So XML path would be my first open even if I apply another method to accomplish this functionality.</p>
+<p>Here is the project mock up, you can see there is more than 2 synonym name, when I click the icon, it will expaned to display the whole synonym names.</p>
+<p><img src="https://raw.githubusercontent.com/HaroldHL/imageStore/master/sqlxml/mockup.png" alt="Mockup"></p>
+<h3 id="Concise-SQL-statements"><a href="#Concise-SQL-statements" class="headerlink" title="Concise SQL statements:"></a>Concise SQL statements:</h3><p>If I apply this sql to get the synonymName, it will get 3 records.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> ltbChemical l <span class="keyword">with</span>(NOLOCK)</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> ltbchemical_synonymName ls <span class="keyword">with</span>(NOLOCK)</span><br><span class="line">  <span class="keyword">ON</span> l.ChemicalID = ls.chemicalID</span><br><span class="line"><span class="keyword">WHERE</span> l.chemicalID = <span class="number">68887</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Result"><a href="#Result" class="headerlink" title="Result:"></a>Result:</h3><p><img src="https://raw.githubusercontent.com/HaroldHL/imageStore/master/sqlxml/sql1.png" alt="SQL Output"></p>
+<h2 id="Intro-XML-PATH"><a href="#Intro-XML-PATH" class="headerlink" title="Intro XML PATH"></a>Intro XML PATH</h2><p>A SELECT query returns results as a row set. You can optionally retrieve formal results of a SQL query as XML by specifying the FOR XML clause in the query. The FOR XML clause can be used in top-level queries and in subqueries. The top-level FOR XML clause can be used only in the SELECT statement. In subqueries, FOR XML can be used in the INSERT, UPDATE, and DELETE statements. FOR XML can also be used in assignment statements.<br><a href="https://docs.microsoft.com/en-us/sql/relational-databases/xml/for-xml-sql-server?view=sql-server-ver15" target="_blank" rel="noopener">View on documentation</a></p>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example:"></a>Example:</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * </span><br><span class="line"><span class="keyword">FROM</span> ltbChemical_SynonymName</span><br><span class="line"><span class="keyword">FOR</span> <span class="keyword">XML</span> <span class="keyword">PATH</span></span><br></pre></td></tr></table></figure>
+<h3 id="Result-1"><a href="#Result-1" class="headerlink" title="Result"></a>Result</h3><p><img src="https://raw.githubusercontent.com/HaroldHL/imageStore/master/sqlxml/xml.png" alt="SQL Output"></p>
+<h2 id="How-to-use-XML-PATH"><a href="#How-to-use-XML-PATH" class="headerlink" title="How to use XML PATH"></a>How to use XML PATH</h2><p>With the XML PATH，You can append multiple Synonym names to the list from any one rule by separating each one with a separator. But in the actual development, there are also some disadvantages. Too many Synonym Names can cause display problems. It also becomes more cumbersome for the front end to implement data changes to the column. In addition, the statement of SQL has been changed, which is also bad for maintenance. Eventually, I put the data manipulation in the Front-End.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> l.ChemicalName,l.chemicalID, l.CAS,(<span class="keyword">SELECT</span> SynonymName + <span class="string">','</span> </span><br><span class="line"><span class="keyword">FROM</span> ltbChemical_SynonymName ls <span class="keyword">WITH</span>(NOLOCK)</span><br><span class="line"><span class="keyword">WHERE</span> l.ChemicalID =  ls.chemicalID</span><br><span class="line"><span class="keyword">FOR</span> <span class="keyword">XML</span> <span class="keyword">PATH</span>(<span class="string">''</span>) ) <span class="keyword">AS</span> synonymName</span><br><span class="line"><span class="keyword">FROM</span> ltbChemical l <span class="keyword">WITH</span>(NOLOCK)</span><br><span class="line"><span class="keyword">WHERE</span> l.chemicalID = <span class="number">68887</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Result-2"><a href="#Result-2" class="headerlink" title="Result"></a>Result</h3><p><img src="https://raw.githubusercontent.com/HaroldHL/imageStore/master/sqlxml/sql2.png" alt="SQL Output"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/30/PDLP-Internal-Program/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -390,10 +609,10 @@
 </ul>
 <h3 id="Mentors"><a href="#Mentors" class="headerlink" title="Mentors"></a>Mentors</h3><ul>
 <li>Coach developers on coding standards, platform architecture and team processes via a daily touch point.</li>
-<li>Assign exercises mentioned in PDLP documents and additional coding assignments as needed. </li>
+<li>Assign exercises mentioned in PDLP documents and additional coding assignments as needed.</li>
 <li>Work with Unit and Group Leaders on training strategies and transition into product support.</li>
 </ul>
-<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><h3 id="PDLP-Knowledge-Mindmap"><a href="#PDLP-Knowledge-Mindmap" class="headerlink" title="PDLP Knowledge Mindmap"></a>PDLP Knowledge Mindmap</h3><p><img src="/images/PDLP.png" alt="PDLP"></p>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><h3 id="PDLP-Knowledge-Mindmap"><a href="#PDLP-Knowledge-Mindmap" class="headerlink" title="PDLP Knowledge Mindmap"></a>PDLP Knowledge Mindmap</h3><p><img src="https://raw.githubusercontent.com/HaroldHL/imageStore/master/pdlp/PDLP.png" alt="PDLP"></p>
 <p>PDLP is more likely an entry examination for a new developer in our company. Personally，In  a sense, I turned into a qualitative developer. I have experienced a lot in this project, and I have also gained a lot.As a non-native speaker, It is pretty difficult to explain SQL knowledge and code in English. During in my PDLP project, in the very beginning, I was assigned to recharge the code for an application. Most of the work is optimization on the front end. So it is hard for me to demonstrate  the whole project from back-end to front-end. Eventually, before two weeks of the examination, Mentor suggested me to do the small prototype for the demonstration.</p>
 <p>I was still shocked on the day of the examination. Firstly, I would have thought that without Indian examiners there would be no problem in hearing the questions clearly. But I was also beaten by the Mexican accent. I still remember there was several times that I ask the examiner for repeating the question. </p>
 <p>Secondly, during my presentation, I just talked  5mins about the functionality, they told me to jump into the code. so Basically I answer the coding and program design question about whole 55 mins. From scoping to SQL Optimization, They asked thoroughly in every aspect to test me if I’ve got it all.</p>
@@ -964,8 +1183,8 @@
 <p>What I did was limit the two inputs to 30 days. Not just a single control, but both will limit each other. For instance, When you choose a exact date in the former one, Then the latter one will have a 30-days limitation. And when you choose a exact date in latter one, the latter one has no limitation and the former one is limited.</p>
 <p>I Looked through the FlatPickr <a href="https://flatpickr.js.org/" target="_blank" rel="noopener">Documentation</a>. No similar examples can be found. With the help of my mentor, I figured it out. It is not enough to determine whether the input is empty. There’s always a case it cannot be implemented.We need add extra logic to make it happen.</p>
 <h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>Amazon customization for date range limitation. In addition, I‘ve used a <a href="https://momentjs.com" target="_blank" rel="noopener">MomentJS</a> which contains computational functions and type conversion functions.</p>
-<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">var now = new Date();</span><br><span class="line">    var defaultStart = moment(now).subtract(1, <span class="string">'months'</span>).format(<span class="string">"M/DD/YYYY"</span>);</span><br><span class="line">    $(<span class="string">"#dateStart"</span>).flatpickr(&#123;defaultDate: defaultStart&#125;);</span><br><span class="line">    $(<span class="string">"#dateEnd"</span>).flatpickr(&#123;defaultDate: now, dateFormat: <span class="string">'d-M-Y'</span>&#125;);</span><br><span class="line">    var startLimit = 0;</span><br><span class="line">    var endLimit = 0;</span><br><span class="line">    $(<span class="string">"#dateStart"</span>).on(<span class="string">'change'</span>,<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">      var startDate = $(this).val();</span><br><span class="line">      <span class="keyword">if</span>(startDate !== <span class="string">''</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!startLimit)&#123;</span><br><span class="line">          var startDateFormat = moment(startDate).format(<span class="string">"M/DD/YYYY"</span>);</span><br><span class="line">          var endDateFormat = moment(startDate).add(1, <span class="string">'months'</span>).format(<span class="string">"M/DD/YYYY"</span>);</span><br><span class="line">          $(<span class="string">"#dateEnd"</span>).flatpickr(&#123;</span><br><span class="line">            minDate: startDateFormat,</span><br><span class="line">            maxDate: endDateFormat</span><br><span class="line">          &#125;);</span><br><span class="line">          endLimit = 1;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(endLimit)&#123; </span><br><span class="line">          $(<span class="string">"#dateEnd"</span>).flatpickr();</span><br><span class="line">          endLimit = 0;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p><img src="/images/flatpickrOutput.png" alt="FlatpickrOutpit"></p>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">    <span class="keyword">var</span> defaultStart = moment(now).subtract(<span class="number">1</span>, <span class="string">'months'</span>).format(<span class="string">"M/DD/YYYY"</span>);</span><br><span class="line">    $(<span class="string">"#dateStart"</span>).flatpickr(&#123;<span class="attr">defaultDate</span>: defaultStart&#125;);</span><br><span class="line">    $(<span class="string">"#dateEnd"</span>).flatpickr(&#123;<span class="attr">defaultDate</span>: now, <span class="attr">dateFormat</span>: <span class="string">'d-M-Y'</span>&#125;);</span><br><span class="line">    <span class="keyword">var</span> startLimit = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> endLimit = <span class="number">0</span>;</span><br><span class="line">    $(<span class="string">"#dateStart"</span>).on(<span class="string">'change'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">var</span> startDate = $(<span class="keyword">this</span>).val();</span><br><span class="line">      <span class="keyword">if</span>(startDate !== <span class="string">''</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!startLimit)&#123;</span><br><span class="line">          <span class="keyword">var</span> startDateFormat = moment(startDate).format(<span class="string">"M/DD/YYYY"</span>);</span><br><span class="line">          <span class="keyword">var</span> endDateFormat = moment(startDate).add(<span class="number">1</span>, <span class="string">'months'</span>).format(<span class="string">"M/DD/YYYY"</span>);</span><br><span class="line">          $(<span class="string">"#dateEnd"</span>).flatpickr(&#123;</span><br><span class="line">            minDate: startDateFormat,</span><br><span class="line">            maxDate: endDateFormat</span><br><span class="line">          &#125;);</span><br><span class="line">          endLimit = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(endLimit)&#123; </span><br><span class="line">          $(<span class="string">"#dateEnd"</span>).flatpickr();</span><br><span class="line">          endLimit = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p><img src="https://raw.githubusercontent.com/HaroldHL/imageStore/master/plugin/flatpickrOutput.png" alt="FlatpickrOutpit"></p>
 
           
         
@@ -1051,7 +1270,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1062,7 +1281,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -1073,7 +1292,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -1148,7 +1367,7 @@
           <h3 class="widget-title">Tag Cloud</h3>
           <div id="myCanvasContainer" class="widget tagcloud">
               <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Development/" rel="tag">Development</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Devops/" rel="tag">Devops</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Entertainment/" rel="tag">Entertainment</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Homebrew/" rel="tag">Homebrew</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PDLP/" rel="tag">PDLP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Plugin/" rel="tag">Plugin</a><span class="tag-list-count">1</span></li></ul>
+                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Development/" rel="tag">Development</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Devops/" rel="tag">Devops</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Entertainment/" rel="tag">Entertainment</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Homebrew/" rel="tag">Homebrew</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PDLP/" rel="tag">PDLP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Plugin/" rel="tag">Plugin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">1</span></li></ul>
               </canvas>
           </div>
       </div>
@@ -1189,7 +1408,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Totalcount: 1.7k</span>
+  <span class="post-count">Totalcount: 2.1k</span>
 </div>
         
 <div class="busuanzi-count">
