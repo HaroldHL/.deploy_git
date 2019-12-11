@@ -87,13 +87,13 @@
 <meta property="og:site_name" content="Harold&#39;s Zone">
 <meta property="og:description" content="BackgroundRecently, I was working on a project. The aim of this project is to display the synonym names for one chemical. So I asked the DB team to create a new table called the ltbChemical_SynonymNam">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;HaroldHL&#x2F;imageStore&#x2F;master&#x2F;mockup.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;HaroldHL&#x2F;imageStore&#x2F;master&#x2F;sql1.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;HaroldHL&#x2F;imageStore&#x2F;master&#x2F;xml.png">
-<meta property="og:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;HaroldHL&#x2F;imageStore&#x2F;master&#x2F;sql2.png">
-<meta property="og:updated_time" content="2019-12-05T03:38:20.266Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;q2c3cdcdl.bkt.clouddn.com&#x2F;xmlpath.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;q2c3cdcdl.bkt.clouddn.com&#x2F;sql1.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;q2c3cdcdl.bkt.clouddn.com&#x2F;xml.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;q2c3cdcdl.bkt.clouddn.com&#x2F;sql2.png">
+<meta property="og:updated_time" content="2019-12-11T13:23:40.262Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;HaroldHL&#x2F;imageStore&#x2F;master&#x2F;mockup.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;q2c3cdcdl.bkt.clouddn.com&#x2F;xmlpath.png">
 
 
 
@@ -416,18 +416,18 @@
         <h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>Recently, I was working on a project. The aim of this project is to display the synonym names for one chemical. So I asked the DB team to create a new table called the ltbChemical_SynonymName.This table is used to store all synonym Names for a chemical and it is connected with ltbChemical Table via Chemical ID. </p>
 <p>Also there is a gap between our two different apps.  We have an internal tool to import data from an app to another app which can ensure all the data should be correct and unique. For Result Page, we need display all the synonym name in one column which  contradicts the format of the database output.  So XML path would be my first open even if I apply another method to accomplish this functionality.</p>
 <p>Here is the project mock up, you can see there is more than 2 synonym name, when I click the icon, it will expaned to display the whole synonym names.</p>
-<p><img src="https://raw.githubusercontent.com/HaroldHL/imageStore/master/mockup.png" alt="Mockup"></p>
+<p><img src="http://q2c3cdcdl.bkt.clouddn.com/xmlpath.png" alt="Mockup"></p>
 <h3 id="Concise-SQL-statements"><a href="#Concise-SQL-statements" class="headerlink" title="Concise SQL statements:"></a>Concise SQL statements:</h3><p>If I apply this sql to get the synonymName, it will get 3 records.</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> ltbChemical l <span class="keyword">with</span>(NOLOCK)</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> ltbchemical_synonymName ls <span class="keyword">with</span>(NOLOCK)</span><br><span class="line">  <span class="keyword">ON</span> l.ChemicalID = ls.chemicalID</span><br><span class="line"><span class="keyword">WHERE</span> l.chemicalID = <span class="number">68887</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="Result"><a href="#Result" class="headerlink" title="Result:"></a>Result:</h3><p><img src="https://raw.githubusercontent.com/HaroldHL/imageStore/master/sql1.png" alt="SQL Output"></p>
+<h3 id="Result"><a href="#Result" class="headerlink" title="Result:"></a>Result:</h3><p><img src="http://q2c3cdcdl.bkt.clouddn.com/sql1.png" alt="SQL Output"></p>
 <h2 id="Intro-XML-PATH"><a href="#Intro-XML-PATH" class="headerlink" title="Intro XML PATH"></a>Intro XML PATH</h2><p>A SELECT query returns results as a row set. You can optionally retrieve formal results of a SQL query as XML by specifying the FOR XML clause in the query. The FOR XML clause can be used in top-level queries and in subqueries. The top-level FOR XML clause can be used only in the SELECT statement. In subqueries, FOR XML can be used in the INSERT, UPDATE, and DELETE statements. FOR XML can also be used in assignment statements.<br><a href="https://docs.microsoft.com/en-us/sql/relational-databases/xml/for-xml-sql-server?view=sql-server-ver15" target="_blank" rel="noopener">View on documentation</a></p>
 <h3 id="Example"><a href="#Example" class="headerlink" title="Example:"></a>Example:</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * </span><br><span class="line"><span class="keyword">FROM</span> ltbChemical_SynonymName</span><br><span class="line"><span class="keyword">FOR</span> <span class="keyword">XML</span> <span class="keyword">PATH</span></span><br></pre></td></tr></table></figure>
-<h3 id="Result-1"><a href="#Result-1" class="headerlink" title="Result"></a>Result</h3><p><img src="https://raw.githubusercontent.com/HaroldHL/imageStore/master/xml.png" alt="SQL Output"></p>
+<h3 id="Result-1"><a href="#Result-1" class="headerlink" title="Result"></a>Result</h3><p><img src="http://q2c3cdcdl.bkt.clouddn.com/xml.png" alt="SQL Output"></p>
 <h2 id="How-to-use-XML-PATH"><a href="#How-to-use-XML-PATH" class="headerlink" title="How to use XML PATH"></a>How to use XML PATH</h2><p>With the XML PATH，You can append multiple Synonym names to the list from any one rule by separating each one with a separator. But in the actual development, there are also some disadvantages. Too many Synonym Names can cause display problems. It also becomes more cumbersome for the front end to implement data changes to the column. In addition, the statement of SQL has been changed, which is also bad for maintenance. Eventually, I put the data manipulation in the Front-End.</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> l.ChemicalName,l.chemicalID, l.CAS,(<span class="keyword">SELECT</span> SynonymName + <span class="string">','</span> </span><br><span class="line"><span class="keyword">FROM</span> ltbChemical_SynonymName ls <span class="keyword">WITH</span>(NOLOCK)</span><br><span class="line"><span class="keyword">WHERE</span> l.ChemicalID =  ls.chemicalID</span><br><span class="line"><span class="keyword">FOR</span> <span class="keyword">XML</span> <span class="keyword">PATH</span>(<span class="string">''</span>) ) <span class="keyword">AS</span> synonymName</span><br><span class="line"><span class="keyword">FROM</span> ltbChemical l <span class="keyword">WITH</span>(NOLOCK)</span><br><span class="line"><span class="keyword">WHERE</span> l.chemicalID = <span class="number">68887</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="Result-2"><a href="#Result-2" class="headerlink" title="Result"></a>Result</h3><p><img src="https://raw.githubusercontent.com/HaroldHL/imageStore/master/sql2.png" alt="SQL Output"></p>
+<h3 id="Result-2"><a href="#Result-2" class="headerlink" title="Result"></a>Result</h3><p><img src="http://q2c3cdcdl.bkt.clouddn.com/sql2.png" alt="SQL Output"></p>
 
       
     </div>
