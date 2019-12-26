@@ -250,6 +250,241 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/26/ColdBox-Coldfusion-Web-framework/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Harold Yin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Harold's Zone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/26/ColdBox-Coldfusion-Web-framework/" itemprop="url">ColdBox(Coldfusion Web framework)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-26T19:51:00+08:00">
+                2019-12-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Development/" itemprop="url" rel="index">
+                    <span itemprop="name">Development</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/12/26/ColdBox-Coldfusion-Web-framework/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/12/26/ColdBox-Coldfusion-Web-framework/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/12/26/ColdBox-Coldfusion-Web-framework/" class="leancloud_visitors" data-flag-title="ColdBox(Coldfusion Web framework)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  425
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="ColdBox-Coldfusion-MVC-Framework"><a href="#ColdBox-Coldfusion-MVC-Framework" class="headerlink" title="ColdBox (Coldfusion MVC Framework)"></a>ColdBox (Coldfusion MVC Framework)</h4><p>ColdBox is a conventions-based MVC Framework. It provides a set of reusable code and tools that can be used to increase your development productivity, as well as a development standard for working in team environments. ColdBox is comprehensive and modular, which helps address most infrastructure concerns of typical CFML applications. It is composed of several standalone libraries that in turn compose the ColdBox Platform.</p>
+<p><img src="http://q2c3cdcdl.bkt.clouddn.com/coldbox-universe.png" alt="img"></p>
+<p>To Practice the coldbox on localserver, I need introduce a CLI named commandBox.</p>
+<p><a href="https://www.ortussolutions.com/products/commandbox" target="_blank" rel="noopener">CommandBox</a> is a ColdFusion (CFML) Command Line Interface (CLI), REPL, Package Manager and Embedded Server. We will be using CommandBox for almost every excercise in this book and it will also allow you to get up and running with ColdFusion and ColdBox in a much speedier manner.<img src="http://q2c3cdcdl.bkt.clouddn.com/cmdbox.png" alt="CommandBox CLI  COMMANDBOX "></p>
+<h5 id="Step-1"><a href="#Step-1" class="headerlink" title="Step 1"></a>Step 1</h5><p>Installing ColdBox</p>
+<p>To get started open the CommandBox binary or enter the shell by typing box in your terminal or console. Then let’s create a new folder and install ColdBox into a directory.</p>
+<p>CommandBox will resolve coldbox from ForgeBox (<a href="https://www.forgebox.io/" target="_blank" rel="noopener">www.forgebox.io</a>), use the <strong>latest version</strong> available, download and install it in this folder alongside a box.json file which represents your application package.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir myapp --<span class="built_in">cd</span></span><br><span class="line">install coldbox</span><br></pre></td></tr></table></figure>
+
+<h5 id="Step-2"><a href="#Step-2" class="headerlink" title="Step 2"></a>Step 2</h5><p>Coldbox Application</p>
+<p>CommandBox comes with a coldbox create app command that can enable you to create application skeletons using one of our official skeletons or <a href="http://digging-deeper/recipes/application-templates" target="_blank" rel="noopener">your own</a>:</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">coldbox create app MyApp</span><br></pre></td></tr></table></figure>
+
+<p>Then you will get the following File/Folder conventions</p>
+<p><img src="http://q2c3cdcdl.bkt.clouddn.com/file.png" alt="file/folder convetions"></p>
+<h6 id="Re-initializing-the-application"><a href="#Re-initializing-the-application" class="headerlink" title="Re-initializing the application"></a>Re-initializing the application</h6><p>There will be times when you make configuration or code changes that are reflected immediately in the application due to caching. You can tell the framework to <em>reinit</em> or restart the application for you via URL by leveraging the special URL variable <font color="blue">fwreinit.</font></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:&#123;port&#125;/?fwreinit=1</span><br></pre></td></tr></table></figure>
+
+
+
+<p>you can also use CommandBox to reinit the application:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">coldbox reinit</span><br></pre></td></tr></table></figure>
+
+<h4 id="Introduction-of-how-to-use-the-framework"><a href="#Introduction-of-how-to-use-the-framework" class="headerlink" title="Introduction of how to use the framework"></a>Introduction of how to use the framework</h4><p><font color="red">Handler</font></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">coldbox create handler name=<span class="string">"contacts"</span> actions=<span class="string">"index"</span></span><br></pre></td></tr></table></figure>
+
+<p>This will generate the following files:</p>
+<ul>
+<li>A new handler called contacts.cfc inside of the handlers folder</li>
+<li>A view called index.cfm in the Views/hello folder</li>
+<li>An integration test at tests/specs/integration/contactsTest.cfc</li>
+</ul>
+<p><img src="http://q2c3cdcdl.bkt.clouddn.com/handler.png" alt="component{  property ;  any function index(C:\Users\700000473\Desktop\Typora\handler.png ){  event. setView( &quot;contacts/index&quot; ) ;  Please note that inject annotation on the property definition. This tells WireBoxwhat model to inject  into the handler&#39;s variables scope.  By convention it looks in the models folderfor the value, which in our case is contactservice . Now let&#39;s  call it and place some data in the private request collection prc soour views can use it.  any function index( event, rc, prc  contactServi ce. ( ) ;  prc. acontacts  event. setView( &quot;contacts/ index&quot; "></p>
+<p><font color="red">Modal</font></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">coldbox create modal name=<span class="string">"ContactService"</span> methods=<span class="string">"getAll"</span> persistence=<span class="string">"singleton"</span></span><br></pre></td></tr></table></figure>
+
+<p>This will create modals/ContactService.cfc with a getAll() method and a companion unit test at /tests/specs/unit/ContactServiceTest.cfc.</p>
+<p><img src="http://q2c3cdcdl.bkt.clouddn.com/modalData.png" alt="modalData"></p>
+<p><font color="red">View (Presenting The Data) </font></p>
+<p>Open the contacts/index.cfm and add the following  to the view:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">cfoutput</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>My contacts<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"> #html.table(data =prc.aContacts,class="table table-striped")#</span><br><span class="line"><span class="tag">&lt;/<span class="name">cfoutput</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/24/Json-Array-Conbination/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1692,7 +1927,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1714,7 +1949,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -1777,7 +2012,7 @@
           <h3 class="widget-title">Tag Cloud</h3>
           <div id="myCanvasContainer" class="widget tagcloud">
               <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Development/" rel="tag">Development</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Devops/" rel="tag">Devops</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Entertainment/" rel="tag">Entertainment</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GPG/" rel="tag">GPG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/" rel="tag">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Homebrew/" rel="tag">Homebrew</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Json/" rel="tag">Json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PDLP/" rel="tag">PDLP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Plugin/" rel="tag">Plugin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a><span class="tag-list-count">1</span></li></ul>
+                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Coldfusion/" rel="tag">Coldfusion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Development/" rel="tag">Development</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Devops/" rel="tag">Devops</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Entertainment/" rel="tag">Entertainment</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Framework/" rel="tag">Framework</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GPG/" rel="tag">GPG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/" rel="tag">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Homebrew/" rel="tag">Homebrew</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Json/" rel="tag">Json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PDLP/" rel="tag">PDLP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Plugin/" rel="tag">Plugin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a><span class="tag-list-count">1</span></li></ul>
               </canvas>
           </div>
       </div>
@@ -1818,7 +2053,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Totalcount: 2.3k</span>
+  <span class="post-count">Totalcount: 2.8k</span>
 </div>
         
 <div class="busuanzi-count">
