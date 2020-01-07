@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Harold&#39;s Zone">
 <meta property="og:description" content="#182 Duplicate EmailsWrite a SQL query to find all duplicate emails in a table named Person. 1234567+----+---------+| Id | Email   |+----+---------+| 1  | a@b.com || 2  | c@d.com || 3  | a@b.com |+---">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-01-07T12:30:50.753Z">
+<meta property="og:updated_time" content="2020-01-07T12:45:12.531Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -371,7 +371,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  378
+                  464
                 </span>
               
 
@@ -455,6 +455,15 @@
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">+<span class="comment">-----------+</span></span><br><span class="line">| Customers |</span><br><span class="line">+<span class="comment">-----------+</span></span><br><span class="line">| Henry     |</span><br><span class="line">| Max       |</span><br><span class="line">+<span class="comment">-----------+</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="Solution-3"><a href="#Solution-3" class="headerlink" title="Solution"></a>Solution</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">NAME</span> <span class="keyword">AS</span> Customers</span><br><span class="line"><span class="keyword">FROM</span> Customers C</span><br><span class="line"><span class="keyword">WHERE</span> C.Id <span class="keyword">not</span> <span class="keyword">in</span> (<span class="keyword">SELECT</span> CustomerId <span class="keyword">FROM</span> Orders)</span><br></pre></td></tr></table></figure>
+
+<h4 id="197-Rising-Temperature"><a href="#197-Rising-Temperature" class="headerlink" title="197 Rising Temperature"></a>197 Rising Temperature</h4><p>Given a <code>Weather</code> table, write a SQL query to find all dates’ Ids with higher temperature compared to its previous (yesterday’s) dates.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">+<span class="comment">---------+------------------+------------------+</span></span><br><span class="line">| Id(INT) | RecordDate(DATE) | Temperature(INT) |</span><br><span class="line">+<span class="comment">---------+------------------+------------------+</span></span><br><span class="line">|       1 |       2015-01-01 |               10 |</span><br><span class="line">|       2 |       2015-01-02 |               25 |</span><br><span class="line">|       3 |       2015-01-03 |               20 |</span><br><span class="line">|       4 |       2015-01-04 |               30 |</span><br><span class="line">+<span class="comment">---------+------------------+------------------+</span></span><br></pre></td></tr></table></figure>
+
+<p>For example, return the following Ids for the above <code>Weather</code> table:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">+<span class="comment">----+</span></span><br><span class="line">| Id |</span><br><span class="line">+<span class="comment">----+</span></span><br><span class="line">|  2 |</span><br><span class="line">|  4 |</span><br><span class="line">+<span class="comment">----+</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Solution-4"><a href="#Solution-4" class="headerlink" title="Solution"></a>Solution</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> a.id</span><br><span class="line"><span class="keyword">from</span> weather a</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> weather b</span><br><span class="line"><span class="keyword">on</span> a.id=(b.id+<span class="number">1</span>)</span><br><span class="line"><span class="keyword">where</span> a.temperature&gt;b.temperature</span><br></pre></td></tr></table></figure>
+
 
 <h4 id="To-Be-Continued"><a href="#To-Be-Continued" class="headerlink" title="To Be Continued.."></a>To Be Continued..</h4>
       
@@ -663,7 +672,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#182-Duplicate-Emails"><span class="nav-number">1.</span> <span class="nav-text">#182 Duplicate Emails</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Solution"><span class="nav-number">1.1.</span> <span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#196-Delete-Duplicate-Emails"><span class="nav-number">2.</span> <span class="nav-text">#196 Delete Duplicate Emails</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Solution-1"><span class="nav-number">2.1.</span> <span class="nav-text">Solution</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#181-Employees-Earning-More-Than-Their-Managers"><span class="nav-number">2.2.</span> <span class="nav-text">#181 Employees Earning More Than Their Managers</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Solution-2"><span class="nav-number">2.3.</span> <span class="nav-text">Solution</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#183-Customers-who-never-Order"><span class="nav-number">2.4.</span> <span class="nav-text">183 Customers who never Order</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Solution-3"><span class="nav-number">3.</span> <span class="nav-text">Solution</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#To-Be-Continued"><span class="nav-number">4.</span> <span class="nav-text">To Be Continued..</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#182-Duplicate-Emails"><span class="nav-number">1.</span> <span class="nav-text">#182 Duplicate Emails</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Solution"><span class="nav-number">1.1.</span> <span class="nav-text">Solution</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#196-Delete-Duplicate-Emails"><span class="nav-number">2.</span> <span class="nav-text">#196 Delete Duplicate Emails</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Solution-1"><span class="nav-number">2.1.</span> <span class="nav-text">Solution</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#181-Employees-Earning-More-Than-Their-Managers"><span class="nav-number">2.2.</span> <span class="nav-text">#181 Employees Earning More Than Their Managers</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Solution-2"><span class="nav-number">2.3.</span> <span class="nav-text">Solution</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#183-Customers-who-never-Order"><span class="nav-number">2.4.</span> <span class="nav-text">183 Customers who never Order</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Solution-3"><span class="nav-number">3.</span> <span class="nav-text">Solution</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#197-Rising-Temperature"><span class="nav-number">4.</span> <span class="nav-text">197 Rising Temperature</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Solution-4"><span class="nav-number">5.</span> <span class="nav-text">Solution</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#To-Be-Continued"><span class="nav-number">6.</span> <span class="nav-text">To Be Continued..</span></a></li></ol></div>
             
 
           </div>
@@ -722,7 +731,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Totalcount: 3.2k</span>
+  <span class="post-count">Totalcount: 3.3k</span>
 </div>
         
 <div class="busuanzi-count">
