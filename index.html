@@ -250,6 +250,266 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/12/AWS-CSAA-Knowledge-Summary/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Harold Yin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Harold's Zone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/01/12/AWS-CSAA-Knowledge-Summary/" itemprop="url">AWS CSAA Knowledge Summary</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-12T21:27:30+08:00">
+                2020-01-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/01/12/AWS-CSAA-Knowledge-Summary/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/01/12/AWS-CSAA-Knowledge-Summary/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2020/01/12/AWS-CSAA-Knowledge-Summary/" class="leancloud_visitors" data-flag-title="AWS CSAA Knowledge Summary">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  335
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li><p>Chapter 1: Introduction to AWS</p>
+<p>It provides an overview of the AWS cloud services that fundamentally important for the exam.</p>
+<p>AWS Fundamentals:</p>
+<ul>
+<li>AWS  provides a highly available technology infrastructures platform with multiple locations worldwide. These locations are composed of <font color="red">regions</font> and <font color="red">Availablity Zones</font>.</li>
+<li>Security</li>
+<li>Compliance</li>
+</ul>
+<p>AWS cloud computing platform</p>
+<ul>
+<li><p>Compute and Networking Services</p>
+<ul>
+<li>EC2</li>
+<li>Lambda</li>
+<li>Auto Scaling</li>
+<li>Elastic Load Balancing </li>
+<li>AWS Elastic Beansalk</li>
+<li>VPC</li>
+<li>Direct Connect</li>
+<li>Route 53</li>
+</ul>
+</li>
+<li><p>Storage and Content Delivery</p>
+<ul>
+<li>S3</li>
+<li>Amazon Glacier</li>
+<li>EBS(provides persistent block-level storage volumes for users with EC2)</li>
+<li>storage gateway</li>
+<li>cloudfront [CDN/to speed up storage]</li>
+</ul>
+</li>
+<li><p>Database Services</p>
+<ul>
+<li>RDS</li>
+<li>DynamoDB(NoSQL)</li>
+<li>Redshift</li>
+<li>ElasticCache</li>
+</ul>
+</li>
+<li><p>Management Tools</p>
+<ul>
+<li>Amazon CloudWatch(organization can gain system wide visibility into resource utilizations)</li>
+<li>AWS CloudFormation</li>
+<li>AWS CloudTrail</li>
+<li>AWS Config</li>
+</ul>
+</li>
+<li><p>Security and Identity</p>
+<ul>
+<li>IAM(identity and access mangement)</li>
+<li>KMS(AWS key management services)</li>
+<li>AWS Directory Services</li>
+<li>AWS certificate Manager</li>
+<li>WAF(AWS web application firewall)</li>
+</ul>
+</li>
+<li><p>Application Services</p>
+<ul>
+<li>API Gateway</li>
+<li>Elastic Transcoder</li>
+<li>SNS(simple notification service)</li>
+<li>SES(simple email service)</li>
+<li>SWF(simple workflow service)</li>
+<li>SQS(simple quene service,fully managed queuing service)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>####  Understanding the difference between a region,an &lt;font color=&quot;red&quot;&gt;Availability Zone(AZ) &lt;/font&gt;and an &lt;font color=&quot;red&quot;&gt;Edge Location&lt;/font&gt;
+
+* A Region is a physical location in the world which consists of two or more Availability Zones(AZ&apos;s)
+* An AZ is one or more discrete data centers, each with redundant power, networking and connectivity, housed in separate facilities.
+* Edge locations are endpoint  for AWS which are used for caching content. Typically this consists of Cloud Front, Amazon&apos;s Content Delivery Network(CDN)
+
+
+
+#### Key Features of &lt;font color=&quot;red&quot;&gt;IAM&lt;/font&gt;
+
+* Centralized control of your AWS account
+* Shared Access to your AWS account
+* Granular Permissions
+* Identity Federation
+* Multifactor Authentication
+* Provide temporary access for users/devices and services where necessary
+*  Allows you to set up your own password rotation policy
+* Integrates with many different AWS services
+* Supports PCI DSS Compliance</code></pre><p>___TO BE CONTINUED/Weekly Update</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/07/LeetCode-SQL-Easy/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -461,6 +721,7 @@
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">+<span class="comment">----+</span></span><br><span class="line">| Id |</span><br><span class="line">+<span class="comment">----+</span></span><br><span class="line">|  2 |</span><br><span class="line">|  4 |</span><br><span class="line">+<span class="comment">----+</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="Solution-4"><a href="#Solution-4" class="headerlink" title="Solution"></a>Solution</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> a.id</span><br><span class="line"><span class="keyword">from</span> weather a</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> weather b</span><br><span class="line"><span class="keyword">on</span> a.id=(b.id+<span class="number">1</span>)</span><br><span class="line"><span class="keyword">where</span> a.temperature&gt;b.temperature</span><br></pre></td></tr></table></figure>
+
 
 
 <h4 id="To-Be-Continued"><a href="#To-Be-Continued" class="headerlink" title="To Be Continued.."></a>To Be Continued..</h4>
@@ -2134,220 +2395,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/25/Date-Plugin/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Harold Yin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Harold's Zone">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/11/25/Date-Plugin/" itemprop="url">Date Plugin</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-25T01:03:08+08:00">
-                2019-11-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Development/" itemprop="url" rel="index">
-                    <span itemprop="name">Development</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Development/Plugin/" itemprop="url" rel="index">
-                    <span itemprop="name">Plugin</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/11/25/Date-Plugin/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/25/Date-Plugin/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/11/25/Date-Plugin/" class="leancloud_visitors" data-flag-title="Date Plugin">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  285
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>Flatpickr is a lightweight and powerful datetime pickr. It is integrated into company’s custom Tag.</p>
-<h3 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h3><p>Why did I use it? Since I got a customer’s request in one App from Amazon. Amazon has a lot of Data, what they need is that adding a date limitation on searching filter.</p>
-<p>What I did was limit the two inputs to 30 days. Not just a single control, but both will limit each other. For instance, When you choose a exact date in the former one, Then the latter one will have a 30-days limitation. And when you choose a exact date in latter one, the latter one has no limitation and the former one is limited.</p>
-<p>I Looked through the FlatPickr <a href="https://flatpickr.js.org/" target="_blank" rel="noopener">Documentation</a>. No similar examples can be found. With the help of my mentor, I figured it out. It is not enough to determine whether the input is empty. There’s always a case it cannot be implemented.We need add extra logic to make it happen.</p>
-<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>Amazon customization for date range limitation. In addition, I‘ve used a <a href="https://momentjs.com" target="_blank" rel="noopener">MomentJS</a> which contains computational functions and type conversion functions.</p>
-<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">    <span class="keyword">var</span> defaultStart = moment(now).subtract(<span class="number">1</span>, <span class="string">'months'</span>).format(<span class="string">"M/DD/YYYY"</span>);</span><br><span class="line">    $(<span class="string">"#dateStart"</span>).flatpickr(&#123;<span class="attr">defaultDate</span>: defaultStart&#125;);</span><br><span class="line">    $(<span class="string">"#dateEnd"</span>).flatpickr(&#123;<span class="attr">defaultDate</span>: now, <span class="attr">dateFormat</span>: <span class="string">'d-M-Y'</span>&#125;);</span><br><span class="line">    <span class="keyword">var</span> startLimit = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> endLimit = <span class="number">0</span>;</span><br><span class="line">    $(<span class="string">"#dateStart"</span>).on(<span class="string">'change'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">var</span> startDate = $(<span class="keyword">this</span>).val();</span><br><span class="line">      <span class="keyword">if</span>(startDate !== <span class="string">''</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!startLimit)&#123;</span><br><span class="line">          <span class="keyword">var</span> startDateFormat = moment(startDate).format(<span class="string">"M/DD/YYYY"</span>);</span><br><span class="line">          <span class="keyword">var</span> endDateFormat = moment(startDate).add(<span class="number">1</span>, <span class="string">'months'</span>).format(<span class="string">"M/DD/YYYY"</span>);</span><br><span class="line">          $(<span class="string">"#dateEnd"</span>).flatpickr(&#123;</span><br><span class="line">            minDate: startDateFormat,</span><br><span class="line">            maxDate: endDateFormat</span><br><span class="line">          &#125;);</span><br><span class="line">          endLimit = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(endLimit)&#123; </span><br><span class="line">          $(<span class="string">"#dateEnd"</span>).flatpickr();</span><br><span class="line">          endLimit = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p><img src="http://q2c3cdcdl.bkt.clouddn.com/flatpickrOutput.png" alt="FlatpickrOutpit"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">&lt;i class=&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
+  </nav>
+
 
 
           </div>
@@ -2395,7 +2449,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2417,7 +2471,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -2480,7 +2534,7 @@
           <h3 class="widget-title">Tag Cloud</h3>
           <div id="myCanvasContainer" class="widget tagcloud">
               <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Coldfusion/" rel="tag">Coldfusion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Development/" rel="tag">Development</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Devops/" rel="tag">Devops</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Entertainment/" rel="tag">Entertainment</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Framework/" rel="tag">Framework</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GPG/" rel="tag">GPG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/" rel="tag">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Homebrew/" rel="tag">Homebrew</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Json/" rel="tag">Json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PDLP/" rel="tag">PDLP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Plugin/" rel="tag">Plugin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a><span class="tag-list-count">1</span></li></ul>
+                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AWS/" rel="tag">AWS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Coldfusion/" rel="tag">Coldfusion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Development/" rel="tag">Development</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Devops/" rel="tag">Devops</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Entertainment/" rel="tag">Entertainment</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Framework/" rel="tag">Framework</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GPG/" rel="tag">GPG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/" rel="tag">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Homebrew/" rel="tag">Homebrew</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Json/" rel="tag">Json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PDLP/" rel="tag">PDLP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Plugin/" rel="tag">Plugin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a><span class="tag-list-count">1</span></li></ul>
               </canvas>
           </div>
       </div>
@@ -2521,7 +2575,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Totalcount: 3.3k</span>
+  <span class="post-count">Totalcount: 3.6k</span>
 </div>
         
 <div class="busuanzi-count">
