@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="Chapter 1: Introduction to AWS It provides an overview of the AWS cloud services that fundamentally important for the exam. AWS Fundamentals:  AWS  provides a highly available technology infrastructu">
+<meta name="description" content="AWS EC2 Setup Step 1. Sign up for AWS  There are no additional charge for Amazon EC2 for this tutorial. The resources you create in this tutorial are Free Tier eligible. The button and the link open a">
 <meta name="keywords" content="AWS,Devops">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AWS CSAA Knowledge Summary">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;12&#x2F;AWS-CSAA-Knowledge-Summary&#x2F;index.html">
+<meta property="og:title" content="AWSEC2+Ubuntu+VNC">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;05&#x2F;AWSEC2-Ubuntu-VNC&#x2F;index.html">
 <meta property="og:site_name" content="Harold&#39;s Zone">
-<meta property="og:description" content="Chapter 1: Introduction to AWS It provides an overview of the AWS cloud services that fundamentally important for the exam. AWS Fundamentals:  AWS  provides a highly available technology infrastructu">
+<meta property="og:description" content="AWS EC2 Setup Step 1. Sign up for AWS  There are no additional charge for Amazon EC2 for this tutorial. The resources you create in this tutorial are Free Tier eligible. The button and the link open a">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-01-12T13:31:08.986Z">
+<meta property="og:updated_time" content="2020-02-05T03:58:01.245Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -118,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/01/12/AWS-CSAA-Knowledge-Summary/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/02/05/AWSEC2-Ubuntu-VNC/"/>
 
 
 
 
 
-  <title>AWS CSAA Knowledge Summary | Harold's Zone</title>
+  <title>AWSEC2+Ubuntu+VNC | Harold's Zone</title>
   
 
 
@@ -251,7 +251,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/12/AWS-CSAA-Knowledge-Summary/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/05/AWSEC2-Ubuntu-VNC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Harold Yin">
@@ -268,7 +268,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">AWS CSAA Knowledge Summary</h1>
+          <h1 class="post-title" itemprop="name headline">AWSEC2+Ubuntu+VNC</h1>
         
 
         <div class="post-meta">
@@ -280,8 +280,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-12T21:27:30+08:00">
-                2020-01-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-05T11:55:26+08:00">
+                2020-02-05
               </time>
             
 
@@ -299,8 +299,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/01/12/AWS-CSAA-Knowledge-Summary/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/01/12/AWS-CSAA-Knowledge-Summary/" itemprop="commentCount"></span>
+                <a href="/2020/02/05/AWSEC2-Ubuntu-VNC/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/02/05/AWSEC2-Ubuntu-VNC/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -308,7 +308,7 @@
 
           
           
-             <span id="/2020/01/12/AWS-CSAA-Knowledge-Summary/" class="leancloud_visitors" data-flag-title="AWS CSAA Knowledge Summary">
+             <span id="/2020/02/05/AWSEC2-Ubuntu-VNC/" class="leancloud_visitors" data-flag-title="AWSEC2+Ubuntu+VNC">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -338,7 +338,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  335
+                  698
                 </span>
               
 
@@ -354,7 +354,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  2
+                  4
                 </span>
               
             </div>
@@ -375,95 +375,70 @@
       
 
       
-        <ul>
-<li><p>Chapter 1: Introduction to AWS</p>
-<p>It provides an overview of the AWS cloud services that fundamentally important for the exam.</p>
-<p>AWS Fundamentals:</p>
+        <h4 id="AWS-EC2-Setup"><a href="#AWS-EC2-Setup" class="headerlink" title="AWS EC2 Setup"></a>AWS EC2 Setup</h4><ul>
+<li>Step 1. Sign up for AWS</li>
+</ul>
+<p>There are no additional charge for Amazon EC2 for this tutorial. The resources you create in this tutorial are Free Tier eligible. The button and the link open a new tab so you can follow this tutorial in the AWS console.</p>
 <ul>
-<li>AWS  provides a highly available technology infrastructures platform with multiple locations worldwide. These locations are composed of <font color="red">regions</font> and <font color="red">Availablity Zones</font>.</li>
-<li>Security</li>
-<li>Compliance</li>
+<li>Step 2.  Launch an Amazon EC2 Instance</li>
 </ul>
-<p>AWS cloud computing platform</p>
+<p><a href="https://console.aws.amazon.com/console/home" target="_blank" rel="noopener">Open the AWS Management Console</a>, so you can keep this step-by-step guide open. When the screen loads, enter your user name and password to get started.</p>
+<p> Select <strong>Launch Instance</strong> to create and configure your virtual machine.</p>
 <ul>
-<li><p>Compute and Networking Services</p>
+<li>Step 3. Configure your Instance</li>
+</ul>
+<p>In this screen, you are shown options to choose an Amazon Machine Image (AMI). AMIs are preconfigured server templates you can use to launch an instance. Each AMI includes an operating system, and can also include applications and application servers. Find <strong>Ubuntu AMI</strong> an click <strong>Select</strong></p>
+<p>You will now choose an instance type. Instance types comprise of varying combinations of CPU, memory, storage, and networking capacity so you can choose the appropriate mix for your applications. For more information, see <a href="https://aws.amazon.com/ec2/instance-types/" target="_blank" rel="noopener">Amazon EC2 Instance Types.</a></p>
+<p>The default option of <em>t2.micro</em> should already be checked. This instance type is covered within the Free Tier and offers enough compute capacity to tackle simple workloads. Click <strong>Review and Launch</strong> at the bottom of the page. Then click <strong>Launch</strong></p>
 <ul>
-<li>EC2</li>
-<li>Lambda</li>
-<li>Auto Scaling</li>
-<li>Elastic Load Balancing </li>
-<li>AWS Elastic Beansalk</li>
-<li>VPC</li>
-<li>Direct Connect</li>
-<li>Route 53</li>
+<li>Step 4. Use <strong>SSH</strong> to connect your laptop</li>
 </ul>
-</li>
-<li><p>Storage and Content Delivery</p>
+<p>On the next screen you will be asked to choose an existing key pair or create a new key pair. A key pair is used to securely access your Linux instance using SSH. AWS stores the public part of the key pair which is just like a house lock. You download and use the private part of the key pair which is just like a house key.</p>
+<p><strong>Select a new key pair</strong> and give it the name you like. Next click the <strong>Download Key Pair</strong> button.</p>
+<p><strong>Mac/Linux users</strong>: We recommend saving your key pair in the .ssh sub-directory from your home directory (ex. ~/.ssh/devops.pem).</p>
+<p>Tip: On MacOS, the key pair is downloaded to your Downloads directory by default. To move the key pair into the .ssh sub-directory, enter the following command in a terminal window: mv ~/Downloads/devops.pem ~/.ssh/devops.pem</p>
+<p>After you have stored your key pair, click <strong>Launch Instance</strong> to start your Linux instance.’</p>
+<p>Click <strong>View Instances</strong> on the next screen to view your instances and see the status of the instance you have just started.</p>
 <ul>
-<li>S3</li>
-<li>Amazon Glacier</li>
-<li>EBS(provides persistent block-level storage volumes for users with EC2)</li>
-<li>storage gateway</li>
-<li>cloudfront [CDN/to speed up storage]</li>
+<li>Step 5. Connect to your Instane via <strong>SSH</strong></li>
 </ul>
-</li>
-<li><p>Database Services</p>
-<ul>
-<li>RDS</li>
-<li>DynamoDB(NoSQL)</li>
-<li>Redshift</li>
-<li>ElasticCache</li>
-</ul>
-</li>
-<li><p>Management Tools</p>
-<ul>
-<li>Amazon CloudWatch(organization can gain system wide visibility into resource utilizations)</li>
-<li>AWS CloudFormation</li>
-<li>AWS CloudTrail</li>
-<li>AWS Config</li>
-</ul>
-</li>
-<li><p>Security and Identity</p>
-<ul>
-<li>IAM(identity and access mangement)</li>
-<li>KMS(AWS key management services)</li>
-<li>AWS Directory Services</li>
-<li>AWS certificate Manager</li>
-<li>WAF(AWS web application firewall)</li>
-</ul>
-</li>
-<li><p>Application Services</p>
-<ul>
-<li>API Gateway</li>
-<li>Elastic Transcoder</li>
-<li>SNS(simple notification service)</li>
-<li>SES(simple email service)</li>
-<li>SWF(simple workflow service)</li>
-<li>SQS(simple quene service,fully managed queuing service)</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<pre><code>####  Understanding the difference between a region,an &lt;font color=&quot;red&quot;&gt;Availability Zone(AZ) &lt;/font&gt;and an &lt;font color=&quot;red&quot;&gt;Edge Location&lt;/font&gt;
+<p>Open the <strong>Terminal</strong> ,Use the <strong>chmod</strong> command to make sure your private key file is not publicly viewable by entering the following command to restrict permissions to your private SSH key:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 400 ~/.ssh/devops.pem</span><br></pre></td></tr></table></figure>
 
-* A Region is a physical location in the world which consists of two or more Availability Zones(AZ&apos;s)
-* An AZ is one or more discrete data centers, each with redundant power, networking and connectivity, housed in separate facilities.
-* Edge locations are endpoint  for AWS which are used for caching content. Typically this consists of Cloud Front, Amazon&apos;s Content Delivery Network(CDN)
+<p>Then connect your AMI, <strong>if you are using the Linux type AMI, It should be the following command</strong>:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -i ~/.ssh/devops.pem ec2-user@&#123;IP_Address&#125;</span><br></pre></td></tr></table></figure>
 
+<p><strong>Ubuntu</strong>:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -i ~/.ssh/devops.pem ubuntu@&#123;IP_Address&#125;</span><br></pre></td></tr></table></figure>
 
+<h4 id="Configure-VNC"><a href="#Configure-VNC" class="headerlink" title="Configure VNC"></a>Configure VNC</h4><ul>
+<li><p>Step 6. First Open <strong>Security Groups</strong> then choose <strong>Inbound</strong> and <strong>Edit</strong></p>
+<p>Configure VNC Port:</p>
+<ul>
+<li><strong>Protocol</strong>:TCP</li>
+<li><strong>Port Range</strong>:5901</li>
+<li><strong>Source</strong>:Custom 0.0.0.0/0</li>
+</ul>
+</li>
+<li><p>Step 7. Install <strong>VNC Service</strong> and <strong>xfce 4</strong></p>
+<p>Install VNC:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install vnc4server</span><br></pre></td></tr></table></figure>
 
-#### Key Features of &lt;font color=&quot;red&quot;&gt;IAM&lt;/font&gt;
+<p>Open/Shut down the VNC service. Note: <strong>:1</strong> means  port 5901</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ vncserver :1</span><br><span class="line">$ vncserver -<span class="built_in">kill</span> :1</span><br></pre></td></tr></table></figure>
 
-* Centralized control of your AWS account
-* Shared Access to your AWS account
-* Granular Permissions
-* Identity Federation
-* Multifactor Authentication
-* Provide temporary access for users/devices and services where necessary
-*  Allows you to set up your own password rotation policy
-* Integrates with many different AWS services
-* Supports PCI DSS Compliance</code></pre><p>___TO BE CONTINUED/Weekly Update</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install xfce4</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Step 8. Configure VNC File (<strong>~/.vnc/xstartup</strong>)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Uncomment the following two lines for normal desktop:</span></span><br><span class="line"><span class="comment"># unset SESSION_MANAGER</span></span><br><span class="line"><span class="comment"># exec /etc/X11/xinit/xinitrc</span></span><br><span class="line"><span class="comment">#xrdb $HOME/.Xresources</span></span><br><span class="line"><span class="comment">#xsettroot -solid grey</span></span><br><span class="line"><span class="comment">#startxfce4&amp;</span></span><br><span class="line"></span><br><span class="line">[ -x /etc/vnc/xstartup ] &amp;&amp; <span class="built_in">exec</span> /etc/vnc/xstartup</span><br><span class="line">[ -r <span class="variable">$HOME</span>/.Xresources ] &amp;&amp; xrdb <span class="variable">$HOME</span>/.Xresources</span><br><span class="line">xsetroot -solid grey</span><br><span class="line">vncconfig -iconic &amp;</span><br><span class="line"></span><br><span class="line">x-terminal-emulator -geometry 80x24+10+10 -ls -title <span class="string">"<span class="variable">$VNCDESKTOP</span> Desktop"</span> &amp;</span><br><span class="line"><span class="comment">#x-window-manager &amp;</span></span><br><span class="line"></span><br><span class="line">sesion-manager &amp; xfdesktop &amp; xfce4-panel &amp;</span><br><span class="line">xfce4-menu-plugin &amp;</span><br><span class="line">xfsettingsd &amp;</span><br><span class="line">xfconfd &amp;</span><br><span class="line">xfwm4 &amp;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Step 9. Start VNC Service and Install VNC Client to connect your Ubuntu</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vncserver :1</span><br></pre></td></tr></table></figure>
+
+<p>I recommend a free vnc client is <a href="https://www.realvnc.com/en/connect/download/viewer/" target="_blank" rel="noopener">RealVNC</a></p>
+<p>In the end, Using your Public DNS (IPv4) to connect the Ubuntu, then It will show up the GUI.</p>
 
       
     </div>
@@ -496,8 +471,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/01/07/LeetCode-SQL-Easy/" rel="next" title="LeetCode SQL [Easy]">
-                <i class="fa fa-chevron-left"></i> LeetCode SQL [Easy]
+              <a href="/2020/01/12/AWS-CSAA-Knowledge-Summary/" rel="next" title="AWS CSAA Knowledge Summary">
+                <i class="fa fa-chevron-left"></i> AWS CSAA Knowledge Summary
               </a>
             
           </div>
@@ -505,10 +480,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/02/05/AWSEC2-Ubuntu-VNC/" rel="prev" title="AWSEC2+Ubuntu+VNC">
-                AWSEC2+Ubuntu+VNC <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -563,8 +534,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -656,6 +636,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#AWS-EC2-Setup"><span class="nav-number">1.</span> <span class="nav-text">AWS EC2 Setup</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Configure-VNC"><span class="nav-number">2.</span> <span class="nav-text">Configure VNC</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
