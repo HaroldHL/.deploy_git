@@ -250,7 +250,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/21/AWS-CSAA-Chapter4-5-VPC-Cloudwatch-ELB/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/29/AWS-CSAA-Knowledge/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Harold Yin">
@@ -269,7 +269,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/02/21/AWS-CSAA-Chapter4-5-VPC-Cloudwatch-ELB/" itemprop="url">AWS-CSAA Chapter4&5:VPC&Cloudwatch&ELB</a></h1>
+                <a class="post-title-link" href="/2020/02/29/AWS-CSAA-Knowledge/" itemprop="url">AWS CSAA Knowledge</a></h1>
         
 
         <div class="post-meta">
@@ -281,8 +281,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-21T22:44:16+08:00">
-                2020-02-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-29T16:20:37+08:00">
+                2020-02-29
               </time>
             
 
@@ -300,8 +300,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/02/21/AWS-CSAA-Chapter4-5-VPC-Cloudwatch-ELB/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/02/21/AWS-CSAA-Chapter4-5-VPC-Cloudwatch-ELB/" itemprop="commentCount"></span>
+                <a href="/2020/02/29/AWS-CSAA-Knowledge/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/02/29/AWS-CSAA-Knowledge/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -309,7 +309,7 @@
 
           
           
-             <span id="/2020/02/21/AWS-CSAA-Chapter4-5-VPC-Cloudwatch-ELB/" class="leancloud_visitors" data-flag-title="AWS-CSAA Chapter4&5:VPC&Cloudwatch&ELB">
+             <span id="/2020/02/29/AWS-CSAA-Knowledge/" class="leancloud_visitors" data-flag-title="AWS CSAA Knowledge">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -334,7 +334,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  540
+                  46
                 </span>
               
 
@@ -350,7 +350,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  3
+                  1
                 </span>
               
             </div>
@@ -373,862 +373,8 @@
       
         
           
-            <p><strong>Chapter 4</strong></p>
-<h4 id="Amazon-Virtual-Private-Cloud-Amazon-VPC"><a href="#Amazon-Virtual-Private-Cloud-Amazon-VPC" class="headerlink" title="Amazon Virtual Private Cloud (Amazon VPC)"></a><strong>Amazon Virtual Private Cloud (Amazon VPC)</strong></h4><p>— a custom-defined virtual network</p>
-<p>— <em>A strong understanding of Amazon VPC topology and troubleshooting is required to pass the exam</em></p>
-<p>With VPC, you can </p>
-<ul>
-<li>selecting your own IP address range</li>
-<li>creating your own <em>subnets</em></li>
-<li>configuring your own route tables, network gateways, and security settings</li>
-<li>two different networking platforms<ul>
-<li>EC2-Classic </li>
-<li>EC2-VPC</li>
-</ul>
-</li>
-</ul>
-<p>An Amazon VPC consists of the following components:</p>
-<ul>
-<li><p>Subnets</p>
-<ul>
-<li>a segment of an Amazon VPC’s IP address range</li>
-<li>Subnets reside within one Availability Zone and cannot span zones/remember that one subnet equals one Availability Zone</li>
-</ul>
-</li>
-<li><p>Route tables</p>
-</li>
-<li><p>Dynamic Host Configuration Protocol (DHCP) option sets</p>
-<ul>
-<li><p>sets element of an Amazon VPC allows you to direct Amazon EC2 host</p>
-<p>name assignment to your own resources</p>
-</li>
-</ul>
-</li>
-<li><p>Security groups</p>
-<ul>
-<li>a virtual stateful firewall that controls inbound and outbound traffic to Amazon EC2 instances</li>
-</ul>
-</li>
-<li><p>Network Access Control Lists (ACLs)</p>
-<ul>
-<li>acts as a stateless firewall on a subnet level</li>
-</ul>
-</li>
-</ul>
-<p>An Amazon VPC has the following optional components:</p>
-<ul>
-<li>Internet Gateways (IGWs)<ul>
-<li>IGW provides a target in your Amazon VPC route tables for Internet-routable traffic</li>
-<li>network address translation for instances that have been assigned public IP addresses.</li>
-</ul>
-</li>
-<li>Elastic IP (EIP) addresses<ul>
-<li>a static, public IP address in the pool for the region</li>
-</ul>
-</li>
-<li>Elastic Network Interfaces (ENIs)</li>
-<li>Endpoints<ul>
-<li>enables you to create a private connection between your Amazon VPC and another AWS service without requiring access over the Internet or through a NAT instance, VPN connection, or AWS Direct Connect</li>
-</ul>
-</li>
-<li>Peering<ul>
-<li>a networking connection between two Amazon VPCs</li>
-</ul>
-</li>
-<li>Network Address Translation (NATs) instances and NAT gateways<ul>
-<li>an AWS-managed service that is designed to accept traffic from instances within a private subnet, translate the source IP address to the public IP address of the NAT gateway, and forward the traffic to the IGW</li>
-</ul>
-</li>
-<li>Virtual Private Gateway (VPG), Customer Gateways (CGWs), and Virtual Private Networks (VPNs)<ul>
-<li>VPN concentrator on the AWS side of the VPN connection between the two networks</li>
-</ul>
-</li>
-</ul>
-<p><strong>Chapter 5</strong></p>
-<h4 id="Elastic-Load-Balancing-Amazon-CloudWatch"><a href="#Elastic-Load-Balancing-Amazon-CloudWatch" class="headerlink" title="Elastic Load Balancing, Amazon CloudWatch"></a>Elastic Load Balancing, Amazon CloudWatch</h4><p>Basics:</p>
-<ul>
-<li>ELB:<ul>
-<li>a highly available service that distributes traffic across Amazon Elastic Compute Cloud (Amazon EC2) instances and includes options that provide flexibility and control of incoming requests to Amazon EC2 instances.</li>
-</ul>
-</li>
-<li><em>CloudWatch</em><ul>
-<li>a service that monitors AWS Cloud resources and applications running on AWS</li>
-</ul>
-</li>
-<li><em>Auto Scaling</em><ul>
-<li>a service that allows you to maintain the availability of your applications</li>
-</ul>
-</li>
-</ul>
-<p><strong>Elastic Load Balancing</strong></p>
-<ul>
-<li>A load balancer is a mechanism that automatically distributes traffic across multiple Amazon EC2 instances.</li>
-<li>distribute traffic across a group of Amazon EC2 instances in one or more <em>Availability Zones</em></li>
-</ul>
-<p>Advantages of ELB</p>
-<ul>
-<li>it scales in and out automatically</li>
-<li>seamlessly integrates with the Auto Scaling service</li>
-<li>secure, working with VPC</li>
-</ul>
-<p>Types of Load Balancers</p>
-<ul>
-<li><strong>Internet-Facing Load Balancers</strong><ul>
-<li>It takes requests from clients over the Internet and distributes them to Amazon EC2 instances that are registered with the load balancer.</li>
-</ul>
-</li>
-<li><strong>Internal Load Balancers</strong></li>
-<li><strong>HTTPS Load Balancers</strong><ul>
-<li>create a load balancer that uses the SSL/Transport Layer Security (TLS) protocol for encrypted connections (also known as <em>SSL offload</em>)</li>
-</ul>
-</li>
-</ul>
-<p><strong>Configuring Elastic Load Balancing</strong></p>
-<ul>
-<li>Cross-Zone Load Balancing</li>
-<li>Connection Draining</li>
-<li>Proxy Protocol</li>
-<li>Sticky Sessions</li>
-<li>Health Checks</li>
-</ul>
-<hr>
-<p><strong>Amazon CloudWatch</strong></p>
-<ul>
-<li>monitor CPU utilization</li>
-<li>perform a PUT request to push that metric into Amazon CloudWatch</li>
-<li>supports monitoring and specific metrics for most AWS Cloud services</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/20/AWS-CSAA-Chapter3-EC2-EBS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Harold Yin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Harold's Zone">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/02/20/AWS-CSAA-Chapter3-EC2-EBS/" itemprop="url">AWS-CSAA Chapter3:EC2&EBS</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-20T23:47:55+08:00">
-                2020-02-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2020/02/20/AWS-CSAA-Chapter3-EC2-EBS/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/02/20/AWS-CSAA-Chapter3-EC2-EBS/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2020/02/20/AWS-CSAA-Chapter3-EC2-EBS/" class="leancloud_visitors" data-flag-title="AWS-CSAA Chapter3:EC2&EBS">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  437
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  2
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="Chapter-3"><a href="#Chapter-3" class="headerlink" title="Chapter 3:"></a>Chapter 3:</h4><h4 id="Amazon-Elastic-Compute-Cloud-Amazon-EC2"><a href="#Amazon-Elastic-Compute-Cloud-Amazon-EC2" class="headerlink" title="Amazon Elastic Compute Cloud (Amazon EC2)"></a><strong>Amazon Elastic Compute Cloud (Amazon EC2)</strong></h4><p>— Basic Conception</p>
-<ul>
-<li><p>Amazon EC2 allows you to acquire compute through the launching of virtual servers called <strong>instances</strong>. </p>
-</li>
-<li><p>Two Keys</p>
-<ul>
-<li>Instance Type</li>
-<li>AMI</li>
-</ul>
-</li>
-</ul>
-<p><strong>Instance Types</strong></p>
-<ul>
-<li>Virtual CPUs (vCPUs)</li>
-<li>Memory</li>
-<li>Storage (size and type)</li>
-<li>Network performance</li>
-</ul>
-<p><strong>Amazon Machine Images (AMIs)</strong></p>
-<ul>
-<li>The Operating System (OS) and its configuration</li>
-<li>The initial state of any patches</li>
-<li>Application or system software</li>
-</ul>
-<p>There are <em>four sources</em>of AMIs:</p>
-<ul>
-<li><strong>Published by AWS</strong></li>
-<li><strong>The AWS Marketplace</strong></li>
-<li><strong>Generated from Existing Instances</strong></li>
-<li><strong>Uploaded Virtual Servers</strong></li>
-</ul>
-<p><strong>Securely Using an Instance</strong></p>
-<ul>
-<li><strong>Addressing an Instance</strong><ul>
-<li>Public Domain Name System (DNS) Name</li>
-<li>Public IP</li>
-<li>Elastic IP</li>
-</ul>
-</li>
-<li><strong>Initial Access</strong>  (public-key cryptography to encrypt and decrypt login information)</li>
-<li><strong>Virtual Firewall Protection</strong> ( <em>security groups</em>)</li>
-</ul>
-<p><strong>The Lifecycle of Instances</strong></p>
-<ul>
-<li><p>Launching</p>
-</li>
-<li><p>Bootstrapping ( configure instances and install applications programmatically when an instance is launched. )</p>
-<ul>
-<li>Applying patches and updates to the OS</li>
-<li>Enrolling in a directory service</li>
-<li>Installing application software</li>
-<li>Copying a longer script or program from storage to be run on the instance</li>
-<li>Installing Chef or Puppet and assigning the instance a role so the configuration management software can configure the instance</li>
-</ul>
-</li>
-<li><p>VM Import/Export ( only export previously imported Amazon EC2 instances / Instances launched within AWS from AMIs cannot be exported)</p>
-</li>
-<li><p>Instance Metedata(configure or manage the running instance/<strong>AWS API</strong>)</p>
-<ul>
-<li>The associated security groups</li>
-<li>The instance ID</li>
-<li>The instance type</li>
-<li>The AMI used to launch the instance</li>
-</ul>
-</li>
-<li><p>Managing Instances</p>
-<table>
-<thead>
-<tr>
-<th><strong>Key</strong></th>
-<th><strong>Value</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Project</td>
-<td>TimeEntry</td>
-</tr>
-<tr>
-<td>Environment</td>
-<td>Production</td>
-</tr>
-<tr>
-<td>BillingCode</td>
-<td>4004</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>Monitoring Instances (via CloudWatch)</p>
-</li>
-<li><p>Modifying an Instance</p>
-</li>
-<li><p>Security Groups</p>
-</li>
-<li><p>Termination Protection</p>
-</li>
-</ul>
-<p><strong>Architectures with Different Pricing Models</strong></p>
-<p><strong><font color="red">For Exam</font></strong>,it’s important to know how to take advantage of the different pricing models to create a cost-efficient architecture.For instance, a website that averages 5,000 visits a day, but ramps up to 20,000 visits a day during periodic peaks, may purchase two <strong>Reserved Instances</strong> to handle the average traffic, but depend on <strong>On- Demand Instances</strong> to fulfill compute needs during the peak times.</p>
-<p><strong>Instance Stores</strong></p>
-<p>— The size and type of instance stores available with an Amazon EC2 instance depend on the <strong>instance type</strong></p>
-<p>Instance stores are included in the cost of an Amazon EC2 instance，so they are a very <strong>cost- effective</strong> solution for appropriate workloads. <strong>Temporary</strong> &amp; Data is Lost  when:</p>
-<ul>
-<li>The underlying disk drive fails.</li>
-<li>The instance stops (the data will persist if an instance reboots).</li>
-<li>The instance terminates.</li>
-</ul>
-<p>——————————————————————————————————————————————————</p>
-<h4 id="Amazon-Elastic-Block-Store-Amazon-EBS"><a href="#Amazon-Elastic-Block-Store-Amazon-EBS" class="headerlink" title="Amazon Elastic Block Store (Amazon EBS)"></a><strong>Amazon Elastic Block Store (Amazon EBS)</strong></h4><p>— Basic Coception</p>
-<p>provides persistent block-level storage volumes for use with Amazon EC2 instances</p>
-<p><strong>EBS Volumes Types</strong></p>
-<ul>
-<li>Magnetic Volumes</li>
-<li>General-Purpose SSD(they cost the lowest per gigabyte)<ul>
-<li>System boot volumes</li>
-<li>Small- to medium-sized databases</li>
-<li>Development and test environments</li>
-</ul>
-</li>
-<li>Provisional IOPS SSD</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/20/AWS-CSAA-Chapter1-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Harold Yin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Harold's Zone">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/02/20/AWS-CSAA-Chapter1-2/" itemprop="url">AWS-CSAA Chapter1&2 AWS&S3</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-20T23:45:07+08:00">
-                2020-02-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2020/02/20/AWS-CSAA-Chapter1-2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/02/20/AWS-CSAA-Chapter1-2/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2020/02/20/AWS-CSAA-Chapter1-2/" class="leancloud_visitors" data-flag-title="AWS-CSAA Chapter1&2 AWS&S3">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  909
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  5
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="Chapter-1"><a href="#Chapter-1" class="headerlink" title="Chapter 1"></a><strong>Chapter 1</strong></h4><p><strong>Introduction to AWS</strong></p>
-<ul>
-<li><p><strong>Cloud Computing?</strong></p>
-<p>—-<em>Cloud computing</em> is the on-demand delivery of IT resources and applications via the Internet with pay-as-you-go pricing. </p>
-</li>
-<li><p><strong>6 Advantages of Cloud Computing</strong></p>
-<ul>
-<li><strong>Variable vs. Capital Expense</strong></li>
-<li><strong>Economies of Scale</strong></li>
-<li><strong>Stop Guessing Capacity</strong></li>
-<li><strong>Increase Speed and Agility</strong></li>
-<li><strong>Focus on Business Differentiators</strong></li>
-<li><strong>Go Global in Minutes</strong></li>
-</ul>
-</li>
-<li><p><strong>Cloud Computing Deployment Models</strong></p>
-<ul>
-<li>“all-in” cloud-based deployments</li>
-<li>hybrid deployments(on-premises infrastructure&amp;cloud services)</li>
-</ul>
-</li>
-<li><p><strong>AWS Fundamentals</strong></p>
-<p>– AWS  provides a highly available technology infrastructures platform with multiple locations worldwide. These locations are composed of <font color="red">regions</font> and <font color="red">Availablity Zones</font>.</p>
-<ul>
-<li>Global Infrastructure</li>
-<li>Security and Compliance</li>
-</ul>
-</li>
-<li><p><strong>Different Types of AWS services</strong></p>
-<ul>
-<li><p><strong>Compute and Networking Services</strong></p>
-<ul>
-<li>EC2</li>
-<li>Lambda</li>
-<li>Auto Scaling</li>
-<li>Elastic Load Balancing</li>
-<li>AWS Elastic Beanstalk</li>
-<li>VPC</li>
-<li>Direct Connect</li>
-<li>Route 53 =DNS web service</li>
-</ul>
-</li>
-<li><p><strong>Storage and Content Delivery</strong></p>
-<ul>
-<li><strong>S3</strong></li>
-<li>Amazon Glacier</li>
-<li>EBS</li>
-<li>AWS Storage Gateway</li>
-<li>Amazon CloudFront (CDN)</li>
-</ul>
-</li>
-<li><p><strong>Database Services</strong></p>
-<ul>
-<li>Amazon RDS</li>
-<li>DynamoDB</li>
-<li>Amazon Redshift  = DB warehouse</li>
-<li>Amazon ElastiCach</li>
-</ul>
-</li>
-<li><p><strong>Management Tools</strong></p>
-<ul>
-<li>CloudWatch</li>
-<li>CloudFormation</li>
-<li>CloudTrail</li>
-<li>Config</li>
-</ul>
-</li>
-<li><p><strong>Security and Identity</strong></p>
-<ul>
-<li>IAM</li>
-<li>AWS Key Management Service (KMS)</li>
-<li>AWS Directory Service</li>
-<li>AWS Certificate Manager</li>
-<li>AWS Web Application Firewall (WAF)</li>
-</ul>
-</li>
-<li><p><strong>Application Services</strong></p>
-<ul>
-<li>API Gateway</li>
-<li>Elastic Transcoder</li>
-<li>Simple Notification Service (Amazon SNS)</li>
-<li>Simple Email Service (Amazon SES)</li>
-<li>Simple Workflow Service (Amazon SWF)</li>
-<li>Simple Queue Service (Amazon SQS) =message queuing service</li>
-</ul>
-<p>​    </p>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-<p>  <strong>Chapter 2</strong></p>
-<p>  <strong>Amazon S3</strong> &amp;  <strong>Amazon Glacier Storage</strong></p>
-<p>S3</p>
-<p>—Amazon S3 is cloud <strong>object storage</strong>/Amazon S3 storage is independent of a server and is accessed over the Internet. </p>
-<p>Amazon S3 storage common usea cases</p>
-<ul>
-<li>Backup and archive for on-premises or cloud data</li>
-<li>Content, media, and software storage and distribution</li>
-<li>Big data analytics</li>
-<li>Static website hosting</li>
-<li>Cloud-native mobile and Internet application hosting</li>
-<li>Disaster recovery</li>
-</ul>
-<p>Traditional IT environments</p>
-<ul>
-<li><em>block storage</em> (lower)</li>
-<li><em>file storage</em></li>
-</ul>
-<p><strong>S3 Basics</strong></p>
-<ul>
-<li><p><strong>Buckets</strong></p>
-<ul>
-<li>A <em>bucket</em> is a container (web folder) for objects (files) </li>
-<li>bucket names are global.</li>
-<li>create and use multiple buckets/up to 100 per account by default.</li>
-</ul>
-</li>
-<li><p><strong>AWS Regions</strong></p>
-<ul>
-<li>each Amazon S3 bucket is created in a specific region that you choose.</li>
-</ul>
-</li>
-<li><p><strong>Objects</strong></p>
-<ul>
-<li>Objects can range in size from 0 bytes up to <strong>5TB</strong></li>
-</ul>
-</li>
-<li><p><strong>Keys</strong></p>
-<ul>
-<li>An S3 bucket is identified by a unique identifier called a <em>key</em>.</li>
-</ul>
-</li>
-<li><p><strong>Object URL</strong></p>
-<ul>
-<li>​    <a href="http://mybucket.s3.amazonaws.com/fee/fi/fo/fum/jack.docbucket" target="_blank" rel="noopener">http://mybucket.s3.amazonaws.com/fee/fi/fo/fum/jack.docbucket</a> bucket name is still  mybucket, but now the key or filename is the string fee/fi/fo/fum/jack.doc. </li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p><strong>Durability and Availability</strong></p>
-<ul>
-<li>99.999999999% durability   <em>11</em><ul>
-<li>store non-critical or easily reproducible derived data (such as image thumbnails) - use Reduced Redundancy Storage (RRS)</li>
-</ul>
-</li>
-<li>99.99% availability</li>
-</ul>
-</li>
-<li><p><strong>Data Consistency</strong></p>
-<ul>
-<li>For PUTs to new objects, this is not a concern—in this case, Amazon S3 provides read-after- write consistency. However, for PUTs to existing objects (object overwrite to an existing key) and for object DELETEs, Amazon S3 provides <em>eventual consistency</em>.</li>
-</ul>
-</li>
-<li><p><strong>Access Control</strong></p>
-<ul>
-<li>Amazon S3 ACLs allow you to grant certain coarse-grained permissions: READ, WRITE, or FULL-CONTROL at the object or bucket level</li>
-<li>IAM</li>
-</ul>
-</li>
-<li><p><strong>Static Website Hosting</strong></p>
-</li>
-<li><p><strong>Storage Classes</strong></p>
-<ul>
-<li>*Amazon S3 Standard </li>
-<li><em>Standard-IA</em> – (Infrequent Access) <ul>
-<li>designed for long-lived, less frequently accessed data.Standard-IA has a lower per GB-month storage cost than Standard, but the price model also includes a minimum object size (128KB), minimum duration (30 days), and per-GB retrieval costs, so it is best suited for infrequently accessed data that is stored for longer than 30 days.</li>
-</ul>
-</li>
-<li><em>Reduced Redundancy Storage (RRS)</em> <ul>
-<li>slightly lower durability</li>
-</ul>
-</li>
-<li><em>Amazon Glacier</em> storage <ul>
-<li>offers secure, durable, and extremely low-cost cloud storage for data that does not require real-time access, such as archives and long-term backups. </li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>Object Lifecycle Management</strong></p>
-<ul>
-<li>Store backup data initially in Amazon S3 Standard.</li>
-<li>After 30 days, transition to Amazon Standard-IA.</li>
-<li>After 90 days, transition to Amazon Glacier.</li>
-<li>After 3 years, delete.</li>
-</ul>
-</li>
-<li><p><strong>Encryption</strong></p>
-<ul>
-<li><em>SSE-S3 (AWS-Managed Keys)</em></li>
-<li><em>SSE-KMS (AWS KMS Keys)</em><ul>
-<li>This is a fully integrated solution where Amazon handles your key management and protection for Amazon S3</li>
-</ul>
-</li>
-<li><em>SSE-C (Customer-Provided Keys)</em></li>
-<li><em>Client-Side Encryption</em></li>
-</ul>
-</li>
-<li><p><strong>Versioning</strong></p>
-</li>
-<li><p><strong>MFA Delete</strong></p>
-</li>
-<li><p><strong>Pre-Signed URLs</strong></p>
-<ul>
-<li>the object owner can optionally share objects with others by creating a <em>pre-signed URL</em>, using their own security credentials to grant time-limited permission to download the objects</li>
-</ul>
-</li>
-<li><p><strong>Multipart Upload</strong></p>
-<ul>
-<li>a three-step process:initiation/uploading the parts/completion</li>
-<li>you <em>should</em> use multipart upload for objects larger than 100 Mbytes, and you <em>must</em> use multipart upload for objects larger than 5GB</li>
-</ul>
-</li>
-<li><p><strong>Range GETs</strong></p>
-<ul>
-<li>only a portion of an object in both Amazon S3 and Amazon Glacier by using something called a <em>Range</em> <em>GET</em></li>
-</ul>
-</li>
-<li><p><strong>Cross-Region Replication</strong></p>
-<ul>
-<li>Requirements:<ul>
-<li>versioning must be turned on for both source and destination buckets</li>
-<li>use an IAM policy to give Amazon S3 permission</li>
-</ul>
-</li>
-<li>is commonly used to reduce the latency required to access objects</li>
-</ul>
-</li>
-<li><p><strong>Logging</strong></p>
-</li>
-<li><p><strong>Event Notifications</strong></p>
-</li>
-</ul>
-<hr>
-<p><strong>Amazon Glacier</strong></p>
-<p>— Amazon Glacier is designed for 99.999999999% durability of objects over a given year.</p>
-<p>—is designed for infrequently accessed data where a retrieval time of three to five hours is acceptable.</p>
-<ul>
-<li><p><strong>Archives</strong></p>
-<ul>
-<li>data is stored in <em>archives</em></li>
-<li>All archives are automatically encrypted</li>
-<li>archives are immutable</li>
-</ul>
-</li>
-<li><p><strong>Vaults</strong></p>
-<ul>
-<li><em>Vaults</em> are containers for archives</li>
-<li>Each AWS account can have up to 1,000 vaults</li>
-</ul>
-</li>
-<li><p><strong>Vaults Locks</strong></p>
-<ul>
-<li>Once locked, the policy can no longer be changed.</li>
-</ul>
-</li>
-<li><p><strong>Data Retrieval</strong></p>
-<ul>
-<li>retrieve up to 5% of your data stored in Amazon Glacier for free each month</li>
-</ul>
-</li>
-<li><p><font color="red"><strong>Amazon Glacier versus Amazon Simple Storage Service (Amazon S3)</strong></font></p>
-<ul>
-<li>Amazon Glacier supports <strong>40TB</strong> archives <em>vs</em> <strong>5TB</strong> objects in Amazon S3</li>
-<li>Amazon Glacier are identified by system-generated archive IDs <em>vs</em> S3  “friendly” key names</li>
-<li>Amazon Glacier archives are automatically encrypted <em>vs</em> S3 optional</li>
-</ul>
-</li>
-</ul>
+            <p>I have deleted the three posts I previously edited, and all resources related to the AWS Certified Solutions Architect will be placed under this article.</p>
+<p>The specific knowledge points involved in each chapter are put on <a href="https://haroldyin.gitbook.io/aws-csaa/" target="_blank" rel="noopener"><font color="red">Gitbook</font></a> for your reference. Click it and check it out!</p>
 
           
         
@@ -2821,6 +1967,422 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/05/Apply-SQL-XML-Path/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Harold Yin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Harold's Zone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/05/Apply-SQL-XML-Path/" itemprop="url">Apply SQL XML Path</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-05T10:40:58+08:00">
+                2019-12-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Development/" itemprop="url" rel="index">
+                    <span itemprop="name">Development</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Development/SQL/" itemprop="url" rel="index">
+                    <span itemprop="name">SQL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/12/05/Apply-SQL-XML-Path/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/12/05/Apply-SQL-XML-Path/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/12/05/Apply-SQL-XML-Path/" class="leancloud_visitors" data-flag-title="Apply SQL XML Path">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  411
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>Recently, I was working on a project. The aim of this project is to display the synonym names for one chemical. So I asked the DB team to create a new table called the ltbChemical_SynonymName.This table is used to store all synonym Names for a chemical and it is connected with ltbChemical Table via Chemical ID. </p>
+<p>Also there is a gap between our two different apps.  We have an internal tool to import data from an app to another app which can ensure all the data should be correct and unique. For Result Page, we need display all the synonym name in one column which  contradicts the format of the database output.  So XML path would be my first open even if I apply another method to accomplish this functionality.</p>
+<p>Here is the project mock up, you can see there is more than 2 synonym name, when I click the icon, it will expaned to display the whole synonym names.</p>
+<p><img src="https://i.loli.net/2020/01/20/tMsV2NHeo8ha7SJ.png" alt="Mockup"></p>
+<h3 id="Concise-SQL-statements"><a href="#Concise-SQL-statements" class="headerlink" title="Concise SQL statements:"></a>Concise SQL statements:</h3><p>If I apply this sql to get the synonymName, it will get 3 records.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> ltbChemical l <span class="keyword">with</span>(NOLOCK)</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> ltbchemical_synonymName ls <span class="keyword">with</span>(NOLOCK)</span><br><span class="line">  <span class="keyword">ON</span> l.ChemicalID = ls.chemicalID</span><br><span class="line"><span class="keyword">WHERE</span> l.chemicalID = <span class="number">68887</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Result"><a href="#Result" class="headerlink" title="Result:"></a>Result:</h3><p><img src="https://i.loli.net/2020/01/20/UxRvBrWh6C4FTAG.png" alt="SQL Output"></p>
+<h2 id="Intro-XML-PATH"><a href="#Intro-XML-PATH" class="headerlink" title="Intro XML PATH"></a>Intro XML PATH</h2><p>A SELECT query returns results as a row set. You can optionally retrieve formal results of a SQL query as XML by specifying the FOR XML clause in the query. The FOR XML clause can be used in top-level queries and in subqueries. The top-level FOR XML clause can be used only in the SELECT statement. In subqueries, FOR XML can be used in the INSERT, UPDATE, and DELETE statements. FOR XML can also be used in assignment statements.<br><a href="https://docs.microsoft.com/en-us/sql/relational-databases/xml/for-xml-sql-server?view=sql-server-ver15" target="_blank" rel="noopener">View on documentation</a></p>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example:"></a>Example:</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * </span><br><span class="line"><span class="keyword">FROM</span> ltbChemical_SynonymName</span><br><span class="line"><span class="keyword">FOR</span> <span class="keyword">XML</span> <span class="keyword">PATH</span></span><br></pre></td></tr></table></figure>
+<h3 id="Result-1"><a href="#Result-1" class="headerlink" title="Result"></a>Result</h3><p><img src="https://i.loli.net/2020/01/20/fpaYG3oZL98EAem.png" alt="SQL Output"></p>
+<h2 id="How-to-use-XML-PATH"><a href="#How-to-use-XML-PATH" class="headerlink" title="How to use XML PATH"></a>How to use XML PATH</h2><p>With the XML PATH，You can append multiple Synonym names to the list from any one rule by separating each one with a separator. But in the actual development, there are also some disadvantages. Too many Synonym Names can cause display problems. It also becomes more cumbersome for the front end to implement data changes to the column. In addition, the statement of SQL has been changed, which is also bad for maintenance. Eventually, I put the data manipulation in the Front-End.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> l.ChemicalName,l.chemicalID, l.CAS,(<span class="keyword">SELECT</span> SynonymName + <span class="string">','</span> </span><br><span class="line"><span class="keyword">FROM</span> ltbChemical_SynonymName ls <span class="keyword">WITH</span>(NOLOCK)</span><br><span class="line"><span class="keyword">WHERE</span> l.ChemicalID =  ls.chemicalID</span><br><span class="line"><span class="keyword">FOR</span> <span class="keyword">XML</span> <span class="keyword">PATH</span>(<span class="string">''</span>) ) <span class="keyword">AS</span> synonymName</span><br><span class="line"><span class="keyword">FROM</span> ltbChemical l <span class="keyword">WITH</span>(NOLOCK)</span><br><span class="line"><span class="keyword">WHERE</span> l.chemicalID = <span class="number">68887</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Result-2"><a href="#Result-2" class="headerlink" title="Result"></a>Result</h3><p><img src="https://i.loli.net/2020/02/16/3Vekv19QchNEwAY.png" alt="sql2.png"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/30/PDLP-Internal-Program/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Harold Yin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Harold's Zone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/11/30/PDLP-Internal-Program/" itemprop="url">PDLP-Internal Program</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-30T16:21:28+08:00">
+                2019-11-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/11/30/PDLP-Internal-Program/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/30/PDLP-Internal-Program/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/11/30/PDLP-Internal-Program/" class="leancloud_visitors" data-flag-title="PDLP-Internal Program">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  537
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="PDLP-Product-Developer-Leadership-Program-Overview"><a href="#PDLP-Product-Developer-Leadership-Program-Overview" class="headerlink" title="PDLP - Product Developer Leadership Program Overview"></a>PDLP - Product Developer Leadership Program Overview</h2><p>The purpose of the Product Developer Leadership Program (PDLP) is to mentor and train team members to become proficient in all core technologies, processes and standards utilized at Gensuite.  Mentors will advise developers through hands-on training exercises; while simultaneously introducing developers to the products they will support.  Graduating team members will then be able to execute on projects and product support with minimal technical guidance on basic to intermediate requests. </p>
+<h3 id="Program-Areas"><a href="#Program-Areas" class="headerlink" title="Program Areas"></a>Program Areas</h3><p>Each program area below is a starting point and guide to Gensuite Processes, Architecture and programming concepts.  Review with your mentor, explore additional content online (e.g. Adobe CF Docs for example) and execute on the mentioned exercises together with assigned coding exercises from your mentor.</p>
+<ul>
+<li>Gensuite Processes</li>
+<li>User Interface Design</li>
+<li>Client-side Scripting</li>
+<li>Server-side Scripting</li>
+<li>Database Programming</li>
+<li>Platform Architecture</li>
+</ul>
+<h3 id="Developers"><a href="#Developers" class="headerlink" title="Developers"></a>Developers</h3><ul>
+<li>Explore each program area and code examples of each standard introduced to demonstrate understanding of each development standard. </li>
+<li>Review code with Mentors to receive feedback on best practices or ask questions. </li>
+<li>Be able to explain processes and architecture to your Mentor.</li>
+</ul>
+<h3 id="Mentors"><a href="#Mentors" class="headerlink" title="Mentors"></a>Mentors</h3><ul>
+<li>Coach developers on coding standards, platform architecture and team processes via a daily touch point.</li>
+<li>Assign exercises mentioned in PDLP documents and additional coding assignments as needed.</li>
+<li>Work with Unit and Group Leaders on training strategies and transition into product support.</li>
+</ul>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><h3 id="PDLP-Knowledge-Mindmap"><a href="#PDLP-Knowledge-Mindmap" class="headerlink" title="PDLP Knowledge Mindmap"></a>PDLP Knowledge Mindmap</h3><p><img src="https://i.loli.net/2020/01/20/Aot8aTB4YVGIzsJ.png" alt="pdlp.png"></p>
+<p>PDLP is more likely an entry examination for a new developer in our company. Personally，In  a sense, I turned into a qualitative developer. I have experienced a lot in this project, and I have also gained a lot.As a non-native speaker, It is pretty difficult to explain SQL knowledge and code in English. During in my PDLP project, in the very beginning, I was assigned to recharge the code for an application. Most of the work is optimization on the front end. So it is hard for me to demonstrate  the whole project from back-end to front-end. Eventually, before two weeks of the examination, Mentor suggested me to do the small prototype for the demonstration.</p>
+<p>I was still shocked on the day of the examination. Firstly, I would have thought that without Indian examiners there would be no problem in hearing the questions clearly. But I was also beaten by the Mexican accent. I still remember there was several times that I ask the examiner for repeating the question. </p>
+<p>Secondly, during my presentation, I just talked  5mins about the functionality, they told me to jump into the code. so Basically I answer the coding and program design question about whole 55 mins. From scoping to SQL Optimization, They asked thoroughly in every aspect to test me if I’ve got it all.</p>
+<p>For this Program, I prepared the mind map to summarize every aspect of the Knowledge. Also I provide a Github link to look through about this project. Basically it is a protoype from an application. <a href="https://github.com/HaroldHL/InternalProject/" target="_blank" rel="noopener">Github Link</a></p>
+<p>Since I graduated from the College in June 13th, I joined the Gensuite Company in June 17th. This November, I stated my next charpter of Life. During in the past few months, I am getting clearer about what I want to learn and career path in the future.</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -2875,7 +2437,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2897,7 +2459,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -2960,7 +2522,7 @@
           <h3 class="widget-title">Tag Cloud</h3>
           <div id="myCanvasContainer" class="widget tagcloud">
               <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AWS/" rel="tag">AWS</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Development/" rel="tag">Development</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Devops/" rel="tag">Devops</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Entertainment/" rel="tag">Entertainment</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GPG/" rel="tag">GPG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/" rel="tag">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Homebrew/" rel="tag">Homebrew</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Json/" rel="tag">Json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PDLP/" rel="tag">PDLP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Plugin/" rel="tag">Plugin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a><span class="tag-list-count">1</span></li></ul>
+                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AWS/" rel="tag">AWS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/" rel="tag">Cloud Computing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Development/" rel="tag">Development</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Devops/" rel="tag">Devops</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Entertainment/" rel="tag">Entertainment</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GPG/" rel="tag">GPG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/" rel="tag">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Homebrew/" rel="tag">Homebrew</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Json/" rel="tag">Json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PDLP/" rel="tag">PDLP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Plugin/" rel="tag">Plugin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a><span class="tag-list-count">1</span></li></ul>
               </canvas>
           </div>
       </div>
@@ -3001,7 +2563,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Totalcount: 6.3k</span>
+  <span class="post-count">Totalcount: 4.4k</span>
 </div>
         
 <div class="busuanzi-count">
