@@ -250,6 +250,492 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/01/Grokking-Algorithm-Summary/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Harold Yin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Harold's Zone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/03/01/Grokking-Algorithm-Summary/" itemprop="url">Grokking Algorithm Summary</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-01T14:58:57+08:00">
+                2020-03-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/03/01/Grokking-Algorithm-Summary/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/03/01/Grokking-Algorithm-Summary/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2020/03/01/Grokking-Algorithm-Summary/" class="leancloud_visitors" data-flag-title="Grokking Algorithm Summary">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  1.7k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  10
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Here are some summaries of my reading Grokking Algorithm, and if you want to see the online version, I provide a link to <a href="https://haroldyin.gitbook.io/grokking-algorithm/" target="_blank" rel="noopener"><font color="red">Gitbook.</font></a></p>
+<h4 id="Chapter-1-Big-O-notation-amp-Binary-Search"><a href="#Chapter-1-Big-O-notation-amp-Binary-Search" class="headerlink" title="Chapter 1: Big O notation &amp; Binary Search"></a>Chapter 1: Big O notation &amp; Binary Search</h4><p> binary search only works with sorted arrays. </p>
+<ul>
+<li><p><strong>Binary Search</strong></p>
+<ul>
+<li><p>Example:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">binary_search</span><span class="params">(list,item)</span>:</span></span><br><span class="line">  low = <span class="number">0</span></span><br><span class="line">  high = len(list)<span class="number">-1</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> low &lt;= high:</span><br><span class="line">    mid = (low + high)</span><br><span class="line">    guess = list[mid]</span><br><span class="line">    <span class="keyword">if</span> guess == item:</span><br><span class="line">      <span class="keyword">return</span> mid</span><br><span class="line">    <span class="keyword">if</span> guess &gt; item:</span><br><span class="line">      high = mid <span class="number">-1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">      low = mid + <span class="number">1</span></span><br><span class="line">  <span class="keyword">return</span> <span class="literal">None</span>            //The item doesn<span class="string">'t exist.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Example: </span></span><br><span class="line"><span class="string">  </span></span><br><span class="line"><span class="string">list = [1,3,5,7,8,9,11,13]</span></span><br><span class="line"><span class="string">print binary_search(list,3) =&gt;1</span></span><br><span class="line"><span class="string">print binary_search(list,8) =&gt;4</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>Big O Notation</strong></p>
+<ul>
+<li><strong>establishes a worst-case run time</strong></li>
+<li><strong>Some common Big O run times</strong><ul>
+<li>O(log <em>n</em>), also known as <em>log time.</em> Example: Binary search.</li>
+<li>O(<em>n</em>), also known as <em>linear time</em>. Example: Simple search.</li>
+<li>O(<em>n</em> * log <em>n</em>). Example: A fast sorting algorithm, like quicksort (coming up in chapter 4).</li>
+<li>O(<em>n</em>2). Example: A slow sorting algorithm, like selection sort (coming up in chapter 2).</li>
+<li>O(<em>n</em>!). Example: A really slow algorithm, like the traveling salesperson (coming up next!).</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Chapter-2-Selection-Sort"><a href="#Chapter-2-Selection-Sort" class="headerlink" title="Chapter 2: Selection Sort"></a>Chapter 2: Selection Sort</h4><ul>
+<li><p><strong>Array</strong></p>
+<ul>
+<li>good at getting the address of an element</li>
+</ul>
+</li>
+<li><p><strong>Linked List</strong></p>
+<ul>
+<li>linked lists are so much better at <u>inserts</u></li>
+<li><u>delete</u> an element</li>
+</ul>
+</li>
+<li><p><strong>Selection sort</strong></p>
+<ul>
+<li>Step 1: Find the the smallest element</li>
+<li>Step 2: Use it on selection sort function</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">findSmallest</span><span class="params">(arr)</span>:</span></span><br><span class="line">  smallest = arr[<span class="number">0</span>]  //Stores the smallest value</span><br><span class="line">  smallest_index = <span class="number">0</span> //Stores the index of the smallest value</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(arr)):</span><br><span class="line">      <span class="keyword">if</span> arr[i] &lt; smallest:</span><br><span class="line">        smallest = arr[i]</span><br><span class="line">        smallest_index = i</span><br><span class="line">  <span class="keyword">return</span> smallest_index</span><br><span class="line">print(findSmallest([5,3,6,2,10]))  =&gt; 3</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">selectionSort</span><span class="params">(arr)</span>:</span>  ///Sorts an array</span><br><span class="line">  newArr = []</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> range(len(arr)):</span><br><span class="line">      smallest = findSmallest(arr)</span><br><span class="line">      newArr.append(arr.pop(smallest)) //add it to the new array</span><br><span class="line">  <span class="keyword">return</span> newArr</span><br><span class="line"></span><br><span class="line">print selectionSort([5,3,6,2,10]) =&gt; [2, 3, 5, 6, 10]</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h4 id="Chapter-3-Recursion"><a href="#Chapter-3-Recursion" class="headerlink" title="Chapter 3: Recursion"></a>Chapter 3: Recursion</h4><ul>
+<li><p><strong>every recursive function has two parts:</strong></p>
+<ul>
+<li>base case</li>
+<li>recursive case</li>
+</ul>
+<p>ex:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">countdown</span><span class="params">(i)</span>:</span></span><br><span class="line">  <span class="keyword">print</span> i</span><br><span class="line">  <span class="keyword">if</span> i &lt;=<span class="number">0</span>:  //Base case</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  <span class="keyword">else</span>: //recursive case</span><br><span class="line">    countdown(i<span class="number">-1</span>)</span><br><span class="line"></span><br><span class="line">print(countdown(<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Stack</strong></p>
+<ul>
+<li>Push(Add a new item to the top)</li>
+<li>Pop(remove the topmost item and read it)</li>
+</ul>
+</li>
+<li><p><strong>The call stack</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">factorial</span><span class="params">(num)</span>:</span></span><br><span class="line">  <span class="keyword">if</span> num ==<span class="number">1</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">return</span> num * factorial(num<span class="number">-1</span>)</span><br><span class="line"></span><br><span class="line">print(factorial(<span class="number">4</span>))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Recap</strong></p>
+<ul>
+<li>Recursion is when a function calls itself.</li>
+<li>Every recursive function has two cases: the base case and the recursive case.</li>
+<li>A stack has two operations: push and pop.</li>
+<li>All function calls go onto the call stack.</li>
+<li>The call stack can get very large, which takes up a lot of memory.</li>
+</ul>
+</li>
+</ul>
+<h4 id="Chapter-4-QuickSort"><a href="#Chapter-4-QuickSort" class="headerlink" title="Chapter 4: QuickSort"></a>Chapter 4: QuickSort</h4><ul>
+<li><p><strong>D&amp;C(Divide and Conquer)</strong></p>
+<ul>
+<li>Figure out a simple case as the base case.</li>
+<li>Figure out how to reduce your problem and get to the base case.</li>
+</ul>
+</li>
+<li><p><strong>Quicksort</strong></p>
+<ul>
+<li><p>Quicksort is unique because its speed depends on the pivot you choose.</p>
+</li>
+<li><p>First, pick an element from the array. This element is called the <em>pivot.</em></p>
+</li>
+<li><p>Now find the elements smaller than the pivot and the elements larger</p>
+<p>than the pivot.This is called <em>partitioning.</em></p>
+</li>
+<li><p>Ex:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">quicksort</span><span class="params">(array)</span>:</span> </span><br><span class="line">  <span class="keyword">if</span> len(array) &lt; <span class="number">2</span>:</span><br><span class="line">    <span class="keyword">return</span> array   //Base case: arrays <span class="keyword">with</span> <span class="number">0</span> <span class="keyword">or</span> <span class="number">1</span> element are already “sorted.”</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    pivot = array[<span class="number">0</span>]    // Recursive case</span><br><span class="line">    less = [i <span class="keyword">for</span> i <span class="keyword">in</span> array[<span class="number">1</span>:] <span class="keyword">if</span> i &lt;= pivot]    //Sub-array (Less than pivot)</span><br><span class="line">    greater = [i <span class="keyword">for</span> i <span class="keyword">in</span> array[<span class="number">1</span>:] <span class="keyword">if</span> i &gt; pivot]  //Sub-array (Greater than pivot)</span><br><span class="line">  <span class="keyword">return</span> quicksort(less) + [pivot] + quicksort(greater) </span><br><span class="line"></span><br><span class="line">print quicksort([10, 5, 2, 3])     =&gt;[2,3,5,10]</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>Inductive Proofs</strong></p>
+<ul>
+<li>You just got a sneak peak into <em>inductive proofs!</em> Inductive proofs are one way to prove that your algorithm works. Each inductive proof has two steps: the base case and the inductive case. </li>
+</ul>
+</li>
+</ul>
+<h4 id="Chapter-5-Hash-Tables"><a href="#Chapter-5-Hash-Tables" class="headerlink" title="Chapter 5 Hash Tables"></a>Chapter 5 Hash Tables</h4><p>Input Key; Output Value</p>
+<ul>
+<li><p>Python has hash tables; they’re called <em>dictionaries</em>.</p>
+</li>
+<li><p><em>DNS resolution</em> :mapping a web address to an IP address</p>
+</li>
+<li><p><strong>Using hash tables as a cache</strong></p>
+<ul>
+<li><p>You get the web page a lot faster</p>
+</li>
+<li><p>do less work</p>
+</li>
+<li><p>Caching is a common way to make things faster. All big websites use caching. And that data is cached in a hash</p>
+<ul>
+<li><p>Ex:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cache =&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_page</span><span class="params">(url)</span>:</span></span><br><span class="line">  <span class="keyword">if</span> cache.get(url):</span><br><span class="line">    <span class="keyword">return</span> cache[url]</span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    data = get_data_from_server(url)</span><br><span class="line">    cache[url] = data</span><br><span class="line">    <span class="keyword">return</span> data</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>To recap, hashes are good for</p>
+<ul>
+<li>Modeling relationships from one thing to another thing</li>
+<li>Filtering out duplicates</li>
+<li>Caching/memorizing data instead of making your server do work</li>
+</ul>
+</li>
+<li><p>This is called a <em>collision</em>: two keys have been assigned the same slot. </p>
+<ul>
+<li><em>Your hash function is really important.</em> Your hash function mapped all the keys to a single slot. Ideally, your hash function would map keys evenly all over the hash.</li>
+<li>If those linked lists get long, it slows down your hash table a lot. But they won’t get long if you <em>use a good hash function</em>!</li>
+</ul>
+</li>
+<li><p>To avoid collisions</p>
+<ul>
+<li><strong>Load factor</strong><ul>
+<li>Calculation: Load factor = number of items in hash table / total number of slots</li>
+<li>Load factor measures how many empty slots remain in your hash table.</li>
+<li>Once the load factor starts to grow, you need to add more slots to your hash table. This is called <em>resizing</em>. </li>
+<li>With a lower load factor, you’ll have fewer collisions, and your table will perform better.</li>
+</ul>
+</li>
+<li><strong>A good hash function</strong><ul>
+<li>what is a good hash function? look up the SHA function</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Chapter-6-Breadth-first-Search"><a href="#Chapter-6-Breadth-first-Search" class="headerlink" title="Chapter 6: Breadth-first Search"></a>Chapter 6: Breadth-first Search</h4><ul>
+<li><p><em>breadth-first search</em> can slove the  <em>shortest-path problem</em>.</p>
+</li>
+<li><p><strong>What is a graph</strong>？A graph models a set of connections. </p>
+</li>
+<li><p>Refer to LinkedIn,o you need to search people in the order that they’re added. There’s a data structure for this: it’s called <em>a queue</em>.</p>
+<ul>
+<li>First In First Out</li>
+</ul>
+</li>
+</ul>
+<h4 id="Chapter-7-Dijkstra’s-Algorithm"><a href="#Chapter-7-Dijkstra’s-Algorithm" class="headerlink" title="Chapter 7: Dijkstra’s Algorithm"></a>Chapter 7: Dijkstra’s Algorithm</h4><p>There are four steps to Dijkstra’s algorithm:</p>
+<ul>
+<li>Find the “cheapest” node. This is the node you can get to in the least amount of time.</li>
+<li>Update the costs of the neighbors of this node. </li>
+<li>Repeat until you’ve done this for every node in the graph.</li>
+<li>Calculate the final path.</li>
+</ul>
+<p>Collection:</p>
+<ul>
+<li>Each edge in the graph has a number associated with it. These are called <em>weights.</em></li>
+<li>A graph with weights is called a <em>weighted graph</em>. A graph without weights is called an <em>unweighted graph</em>.</li>
+<li>To calculate the shortest path in an unweighted graph, use <em>breadth-first search</em>. To calculate the shortest path in a weighted graph, use <em>Dijkstra’s algorithm</em>. </li>
+<li>Dijkstra’s algorithm only works with <em>directed acyclic graphs</em>, called DAGs for short.</li>
+<li>That assumption only works if you have no negative-weight edges. So you <em>can’t use negative-weight edges with Dijkstra’s algorithm.</em> </li>
+<li>If you want to find the shortest path in a graph that has negative-weight edges, there’s an algorithm for that! It’s called the <em>Bellman-Ford algorithm</em>. </li>
+</ul>
+<p>Implementation</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find_lowest_cost_node</span><span class="params">(costs)</span>:</span></span><br><span class="line">    lowest_cost = float(“inf”)</span><br><span class="line">    lowest_cost_node = <span class="literal">None</span></span><br><span class="line">    <span class="keyword">for</span> node <span class="keyword">in</span> costs:</span><br><span class="line">      	cost = costs[node]</span><br><span class="line">        <span class="keyword">if</span> cost &lt; lowest_cost <span class="keyword">and</span> node <span class="keyword">not</span> <span class="keyword">in</span> processed:</span><br><span class="line">          lowest_cost = cost</span><br><span class="line">					lowest_cost_node = node</span><br><span class="line">    <span class="keyword">return</span> lowest_cost_node</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="Chapter-8-Greedy-Algorithm"><a href="#Chapter-8-Greedy-Algorithm" class="headerlink" title="Chapter 8: Greedy Algorithm"></a>Chapter 8: Greedy Algorithm</h4><ul>
+<li><p>In technical terms: <em>at each step you pick the locally optimal solution</em>, and in the end you’re left with the globally optimal solution.</p>
+</li>
+<li><p>greedy algorithms don’t always work.</p>
+</li>
+<li><p>A set is like a list, except that each item can show up only once in a set. <em>Sets can’t have duplicates.</em> </p>
+</li>
+<li><p><strong>NP-complete problems</strong></p>
+<ul>
+<li>NP-complete problems have no known fast solution.</li>
+<li>If you have an NP-complete problem, your best bet is to use an approximation algorithm.</li>
+<li>Greedy algorithms are easy to write and fast to run, so they make good approximation algorithms.</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>]</span><br><span class="line"></span><br><span class="line">result = set(arr)</span><br><span class="line"></span><br><span class="line">print(result) =&gt;set([1, 2, 3])</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+</li>
+</ul>
+<h4 id="Chapter-9-Dynamic-Programming"><a href="#Chapter-9-Dynamic-Programming" class="headerlink" title="Chapter 9: Dynamic Programming"></a>Chapter 9: Dynamic Programming</h4><ul>
+<li>Every dynamic-programming solution involves a grid.</li>
+<li>The values in the cells are usually what you’re trying to optimize. For the knapsack problem, the values were the value of the goods.</li>
+<li>Each cell is a subproblem, so think about how you can divide your problem into subproblems. That will help you figure out what the axes are.</li>
+<li>Dynamic programming is useful when you’re trying to optimize something given a constraint.</li>
+<li>You can use dynamic programming when the problem can be broken into discrete subproblems.</li>
+<li>Every dynamic-programming solution involves a grid.</li>
+<li>The values in the cells are usually what you’re trying to optimize.</li>
+<li>Each cell is a subproblem, so think about how you can divide your problem into subproblems.</li>
+<li>There’s no single formula for calculating a dynamic-programming solution.</li>
+</ul>
+<p>Implementation：</p>
+<ul>
+<li>git diff</li>
+<li>Biologists use the longest common subsequence to find similarities in DNA strands</li>
+</ul>
+<h4 id="Chapter-10-K-nearest-neighbors"><a href="#Chapter-10-K-nearest-neighbors" class="headerlink" title="Chapter 10: K-nearest neighbors"></a>Chapter 10: K-nearest neighbors</h4><p>KNN—classification and regression:</p>
+<ul>
+<li>Classification = categorization into a group</li>
+<li>Regression = predicting a response (like a number)</li>
+</ul>
+<p><strong>Cosine similarity</strong></p>
+<ul>
+<li>Cosine similarity doesn’t measure the distance between two vectors.</li>
+<li>Instead, it compares the angles of the two vectors.</li>
+</ul>
+<p><strong>Introduction to machine learning</strong></p>
+<ul>
+<li>OCR stands for <em>optical character recognition</em>.</li>
+<li>The first step of OCR, where you go through images of numbers and extract features, is called <em>training</em>. </li>
+<li>The next example involves spam filters, and it has a training step.</li>
+</ul>
+<p><strong>Building a spam filter</strong></p>
+<ul>
+<li>Spam filters use another simple algorithm called the <em>Naive Bayes classifier</em>.</li>
+<li>Picking good features is an important part of a successful KNN algorithm.</li>
+</ul>
+<h4 id="Chapter-11-Next"><a href="#Chapter-11-Next" class="headerlink" title="Chapter 11:  Next?"></a>Chapter 11:  Next?</h4><ul>
+<li><strong>Tree</strong><ul>
+<li>Binary Search Tree</li>
+<li>B-trees</li>
+<li>Red-black trees</li>
+<li>Heaps</li>
+<li>Splay trees</li>
+</ul>
+</li>
+<li><strong>Inverted indexes</strong><ul>
+<li>search engine works</li>
+</ul>
+</li>
+<li><strong>The Fourier transform</strong><ul>
+<li>given a song, the transform can separate it into individual frequencies.</li>
+</ul>
+</li>
+<li><strong>Parallel algorithms</strong><ul>
+<li><em>Overhead of managing the parallelism</em></li>
+<li><em>Load balancing</em></li>
+</ul>
+</li>
+<li><strong>MapReduce</strong><ul>
+<li>the <em>distributed algorithm</em></li>
+<li>Suppose you have a table with billions or trillions of rows, and you want to run a complicated SQL query on it. You can’t run it on MySQL, because it struggles after a few billion rows. Use MapReduce through Hadoop!</li>
+<li>MapReduce in particular is built up from two simple ideas: the <strong>map function</strong> and the <strong>reduce function</strong></li>
+</ul>
+</li>
+<li><strong>Bloom filters and HyperLogLog</strong></li>
+<li><strong>The SHA algorithms</strong><ul>
+<li><strong>Comparing files</strong></li>
+<li><strong>Checking passwords</strong></li>
+</ul>
+</li>
+<li><strong>Locality-sensitive hashing</strong></li>
+<li><strong>Diffie-Hellman key exchange</strong><ul>
+<li>RSA</li>
+</ul>
+</li>
+<li><strong>Linear programming</strong></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/29/AWS-CSAA-Knowledge/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2186,203 +2672,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/30/PDLP-Internal-Program/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Harold Yin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Harold's Zone">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/11/30/PDLP-Internal-Program/" itemprop="url">PDLP-Internal Program</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-30T16:21:28+08:00">
-                2019-11-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/11/30/PDLP-Internal-Program/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/30/PDLP-Internal-Program/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/11/30/PDLP-Internal-Program/" class="leancloud_visitors" data-flag-title="PDLP-Internal Program">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  537
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  3
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="PDLP-Product-Developer-Leadership-Program-Overview"><a href="#PDLP-Product-Developer-Leadership-Program-Overview" class="headerlink" title="PDLP - Product Developer Leadership Program Overview"></a>PDLP - Product Developer Leadership Program Overview</h2><p>The purpose of the Product Developer Leadership Program (PDLP) is to mentor and train team members to become proficient in all core technologies, processes and standards utilized at Gensuite.  Mentors will advise developers through hands-on training exercises; while simultaneously introducing developers to the products they will support.  Graduating team members will then be able to execute on projects and product support with minimal technical guidance on basic to intermediate requests. </p>
-<h3 id="Program-Areas"><a href="#Program-Areas" class="headerlink" title="Program Areas"></a>Program Areas</h3><p>Each program area below is a starting point and guide to Gensuite Processes, Architecture and programming concepts.  Review with your mentor, explore additional content online (e.g. Adobe CF Docs for example) and execute on the mentioned exercises together with assigned coding exercises from your mentor.</p>
-<ul>
-<li>Gensuite Processes</li>
-<li>User Interface Design</li>
-<li>Client-side Scripting</li>
-<li>Server-side Scripting</li>
-<li>Database Programming</li>
-<li>Platform Architecture</li>
-</ul>
-<h3 id="Developers"><a href="#Developers" class="headerlink" title="Developers"></a>Developers</h3><ul>
-<li>Explore each program area and code examples of each standard introduced to demonstrate understanding of each development standard. </li>
-<li>Review code with Mentors to receive feedback on best practices or ask questions. </li>
-<li>Be able to explain processes and architecture to your Mentor.</li>
-</ul>
-<h3 id="Mentors"><a href="#Mentors" class="headerlink" title="Mentors"></a>Mentors</h3><ul>
-<li>Coach developers on coding standards, platform architecture and team processes via a daily touch point.</li>
-<li>Assign exercises mentioned in PDLP documents and additional coding assignments as needed.</li>
-<li>Work with Unit and Group Leaders on training strategies and transition into product support.</li>
-</ul>
-<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><h3 id="PDLP-Knowledge-Mindmap"><a href="#PDLP-Knowledge-Mindmap" class="headerlink" title="PDLP Knowledge Mindmap"></a>PDLP Knowledge Mindmap</h3><p><img src="https://i.loli.net/2020/01/20/Aot8aTB4YVGIzsJ.png" alt="pdlp.png"></p>
-<p>PDLP is more likely an entry examination for a new developer in our company. Personally，In  a sense, I turned into a qualitative developer. I have experienced a lot in this project, and I have also gained a lot.As a non-native speaker, It is pretty difficult to explain SQL knowledge and code in English. During in my PDLP project, in the very beginning, I was assigned to recharge the code for an application. Most of the work is optimization on the front end. So it is hard for me to demonstrate  the whole project from back-end to front-end. Eventually, before two weeks of the examination, Mentor suggested me to do the small prototype for the demonstration.</p>
-<p>I was still shocked on the day of the examination. Firstly, I would have thought that without Indian examiners there would be no problem in hearing the questions clearly. But I was also beaten by the Mexican accent. I still remember there was several times that I ask the examiner for repeating the question. </p>
-<p>Secondly, during my presentation, I just talked  5mins about the functionality, they told me to jump into the code. so Basically I answer the coding and program design question about whole 55 mins. From scoping to SQL Optimization, They asked thoroughly in every aspect to test me if I’ve got it all.</p>
-<p>For this Program, I prepared the mind map to summarize every aspect of the Knowledge. Also I provide a Github link to look through about this project. Basically it is a protoype from an application. <a href="https://github.com/HaroldHL/InternalProject/" target="_blank" rel="noopener">Github Link</a></p>
-<p>Since I graduated from the College in June 13th, I joined the Gensuite Company in June 17th. This November, I stated my next charpter of Life. During in the past few months, I am getting clearer about what I want to learn and career path in the future.</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2437,7 +2726,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2448,7 +2737,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -2459,7 +2748,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -2522,7 +2811,7 @@
           <h3 class="widget-title">Tag Cloud</h3>
           <div id="myCanvasContainer" class="widget tagcloud">
               <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AWS/" rel="tag">AWS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/" rel="tag">Cloud Computing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Development/" rel="tag">Development</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Devops/" rel="tag">Devops</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Entertainment/" rel="tag">Entertainment</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GPG/" rel="tag">GPG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/" rel="tag">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Homebrew/" rel="tag">Homebrew</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Json/" rel="tag">Json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PDLP/" rel="tag">PDLP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Plugin/" rel="tag">Plugin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a><span class="tag-list-count">1</span></li></ul>
+                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AWS/" rel="tag">AWS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/" rel="tag">Cloud Computing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Development/" rel="tag">Development</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Devops/" rel="tag">Devops</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Entertainment/" rel="tag">Entertainment</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GPG/" rel="tag">GPG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/" rel="tag">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Homebrew/" rel="tag">Homebrew</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Json/" rel="tag">Json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PDLP/" rel="tag">PDLP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Plugin/" rel="tag">Plugin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a><span class="tag-list-count">1</span></li></ul>
               </canvas>
           </div>
       </div>
@@ -2563,7 +2852,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Totalcount: 4.4k</span>
+  <span class="post-count">Totalcount: 6.1k</span>
 </div>
         
 <div class="busuanzi-count">
