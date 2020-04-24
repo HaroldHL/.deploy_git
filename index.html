@@ -250,6 +250,426 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/24/Asynchronous-Javascript-Example/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Harold Yin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Harold's Zone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/04/24/Asynchronous-Javascript-Example/" itemprop="url">Asynchronous Javascript Example</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-24T23:22:55+08:00">
+                2020-04-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Development/" itemprop="url" rel="index">
+                    <span itemprop="name">Development</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/04/24/Asynchronous-Javascript-Example/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/04/24/Asynchronous-Javascript-Example/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2020/04/24/Asynchronous-Javascript-Example/" class="leancloud_visitors" data-flag-title="Asynchronous Javascript Example">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  609
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>Background:</strong></p>
+<p>I recently received an assignment to develop a new feature. Basically, this application has different types of data layers. When you click one of them, it will send a ajax and return detailed content for this data layer. After selecting all the filters you wanted in the detailed content, Click the button and then it will getting  Mapping data based on your filters. There are like more than 6 data layers you can operate them. Also multiple data layers’ results can be added up together. See the pseudocode below：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> initFilter = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  $.ajax(&#123;&#125;)</span><br><span class="line">  <span class="comment">//get one data layer filters</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> filters = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  $.ajax(&#123;</span><br><span class="line">  	<span class="comment">//get Data  </span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>I need copy the URL that gather all the filters under each data layer and paste the new tab, then it will load all the data which user got it in the prevous tab. So this feature would be two parts: Copying and Loading Data.</p>
+<p><strong>Solution:</strong></p>
+<p>Copy one:</p>
+<ul>
+<li>Using this kind of data structure:</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">copyme</span>(<span class="params"></span>)</span>&#123;      </span><br><span class="line">    <span class="keyword">var</span> urlparams = &#123;</span><br><span class="line">      <span class="string">"ajaxType_site"</span> : [],</span><br><span class="line">      <span class="string">"ajaxType_UIReport"</span> : $(<span class="string">'#row-UIReport'</span>).find(<span class="string">"input,select"</span>).serializeArray(),</span><br><span class="line">      <span class="string">"ajaxType_im_case"</span> : $(<span class="string">'#row-im_case'</span>).find(<span class="string">"input,select"</span>).serializeArray(),</span><br><span class="line">      <span class="string">"ajaxType_im_event"</span> : $(<span class="string">'#row-im_event'</span>).find(<span class="string">"input,select"</span>).serializeArray(),</span><br><span class="line">      <span class="string">"ajaxType_fom"</span> : $(<span class="string">'#row-fom'</span>).find(<span class="string">"input,select"</span>).serializeArray(),</span><br><span class="line">      <span class="string">"ajaxType_concern"</span> : $(<span class="string">'#row-concern'</span>).find(<span class="string">"input,select"</span>).serializeArray(),</span><br><span class="line">      <span class="string">"ajaxType_pit"</span> : $(<span class="string">'#row-pit'</span>).find(<span class="string">"input,select"</span>).serializeArray(),</span><br><span class="line">      <span class="string">"ajaxType_action"</span> : $(<span class="string">'#row-action'</span>).find(<span class="string">"input,select"</span>).serializeArray(),</span><br><span class="line">      <span class="string">"ajaxType_auditor"</span> : $(<span class="string">'#row-auditor'</span>).find(<span class="string">"input,select"</span>).serializeArray()</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">var</span> copyurl = <span class="built_in">document</span>.createElement(<span class="string">'input'</span>);</span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(copyurl);</span><br><span class="line">    <span class="keyword">var</span> url = <span class="keyword">new</span> URL(<span class="built_in">window</span>.location.href);</span><br><span class="line">    <span class="keyword">var</span> params = <span class="keyword">new</span> URLSearchParams(url.search.slice(<span class="number">1</span>));</span><br><span class="line">    text = location.href.split(<span class="string">'?'</span>)[<span class="number">0</span>] + <span class="string">'?'</span> + params.toString();</span><br><span class="line">  	copyurl.value = text + <span class="string">'&amp;loadmap=1'</span> + <span class="string">'&amp;params='</span> + <span class="built_in">JSON</span>.stringify(urlparams);</span><br><span class="line">    copyurl.select();</span><br><span class="line">    <span class="built_in">document</span>.execCommand(<span class="string">'copy'</span>);</span><br><span class="line">    <span class="built_in">document</span>.body.removeChild(copyurl);</span><br><span class="line">    alert(<span class="string">'URL copied to clipboard.'</span>);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>Loading Data:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> loadMap = <span class="function"><span class="keyword">function</span> (<span class="params">boolean</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> thisurl = <span class="keyword">new</span> URL(<span class="built_in">window</span>.location.href);</span><br><span class="line">    <span class="keyword">var</span> copyurl = <span class="built_in">decodeURI</span>(thisurl.search.slice(<span class="number">1</span>))</span><br><span class="line">    <span class="keyword">if</span> (GS.fn.getUrlParam(<span class="string">'loadmap'</span>)) &#123;</span><br><span class="line">      <span class="keyword">var</span> search = <span class="string">"params="</span></span><br><span class="line">      <span class="keyword">var</span> start = copyurl.indexOf(search);</span><br><span class="line">      <span class="keyword">var</span> params = copyurl.substring(start, start + copyurl.length)</span><br><span class="line">      <span class="keyword">var</span> paramsObjString = params.substr(<span class="number">7</span>)</span><br><span class="line">      <span class="keyword">var</span> paramsObj = <span class="built_in">JSON</span>.parse(paramsObjString)</span><br><span class="line">      <span class="keyword">if</span>(boolean)&#123;</span><br><span class="line">        <span class="comment">// detailed content in each data Layer</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> item <span class="keyword">in</span> paramsObj) &#123;</span><br><span class="line">          <span class="keyword">if</span> (paramsObj[item].length !== <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> paramsObj[item]) &#123;</span><br><span class="line">              <span class="keyword">switch</span> (paramsObj[item][i].name) &#123;</span><br><span class="line">                <span class="comment">//Data layer one</span></span><br><span class="line">                <span class="keyword">case</span> <span class="string">"siteid"</span>:</span><br><span class="line">                  <span class="keyword">var</span> select2Data = _.split(paramsObj[item][i].value, <span class="string">'&amp;'</span>);</span><br><span class="line">                  <span class="keyword">var</span> newOption = <span class="keyword">new</span> Option(select2Data[<span class="number">1</span>], select2Data[<span class="number">0</span>], <span class="literal">true</span>, <span class="literal">true</span>);</span><br><span class="line">                  $(<span class="string">'select[name="siteid"]'</span>).append(newOption).trigger(<span class="string">'change'</span>);</span><br><span class="line">                  <span class="keyword">break</span>;</span><br><span class="line">                <span class="comment">//Data layer two</span></span><br><span class="line">                <span class="keyword">case</span> <span class="string">"UI_Type"</span>:</span><br><span class="line">                  <span class="keyword">if</span>(paramsObj[item][i].value ==<span class="string">'byUser'</span>)&#123;</span><br><span class="line">                    $(<span class="string">'#UI_byUser'</span>).prop(<span class="string">'checked'</span>,<span class="literal">true</span>);</span><br><span class="line">                    $(<span class="string">'#UI_byUser_Input'</span>).removeClass(<span class="string">'hidden-xs-up'</span>);</span><br><span class="line">                    $(<span class="string">'#UI_byUser_dropdown'</span>).removeAttr(<span class="string">"disabled"</span>);</span><br><span class="line">                    $(<span class="string">'#UI_bySite'</span>).prop(<span class="string">'checked'</span>,<span class="literal">false</span>);</span><br><span class="line">                  &#125;</span><br><span class="line">                  <span class="keyword">break</span>;</span><br><span class="line">                <span class="comment">//...</span></span><br><span class="line">                <span class="keyword">default</span>:</span><br><span class="line">                  $(<span class="string">'input[name="'</span>+ paramsObj[item][i].name +<span class="string">'"]'</span>).val(paramsObj[item][i].value);</span><br><span class="line">                  </span><br><span class="line">                 $(<span class="string">'select[name="'</span>+ paramsObj[item][i].name +<span class="string">'"]'</span>).val(paramsObj[item][i].value);</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">// init filter</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> item <span class="keyword">in</span> paramsObj) &#123;</span><br><span class="line">          		<span class="keyword">if</span> (paramsObj[item].length !== <span class="number">0</span>) &#123;</span><br><span class="line">              &#125;</span><br><span class="line">              </span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Loading Map function has two parts: Init Filter and detailed content in each data Layer.</li>
+<li>There is a sequencing problem: I have to let the “init data Layer” completed then detailed content can be filled in each data Layer.</li>
+<li>Based on the asynchronization of JavaScript, I use loading Map function after ajax callback:</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> initFilter = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  $.ajax(&#123;</span><br><span class="line">    <span class="comment">//get one data layer filters</span></span><br><span class="line">  &#125;).done(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">    loadMap(<span class="literal">false</span>)  <span class="comment">// init filter</span></span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $(<span class="string">'.Filters'</span>).find(<span class="string">'div[data-action="map-data"]:visible'</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      $(<span class="keyword">this</span>).trigger(<span class="string">'click'</span>)&#125;) <span class="comment">// trigger each layer's button to get the data.</span></span><br><span class="line">    &#125;,<span class="number">1000</span>);</span><br><span class="line">  &#125;)</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> filters = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  $.ajax(&#123;</span><br><span class="line">  	<span class="comment">//get Data  </span></span><br><span class="line">  &#125;).done(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">    loadMap(<span class="literal">true</span>) <span class="comment">//detailed content in each data Layer</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/24/Google-Maps-API-Marker/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Harold Yin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Harold's Zone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/04/24/Google-Maps-API-Marker/" itemprop="url">Google Maps API Marker</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-24T23:16:39+08:00">
+                2020-04-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Development/" itemprop="url" rel="index">
+                    <span itemprop="name">Development</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/04/24/Google-Maps-API-Marker/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/04/24/Google-Maps-API-Marker/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2020/04/24/Google-Maps-API-Marker/" class="leancloud_visitors" data-flag-title="Google Maps API Marker">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  376
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>Background:</strong></p>
+<p>For a Google Maps based project with a lot of markers, especially this application has over 7 types Markers.</p>
+<p>Google Maps API mentioned that:</p>
+<p><i>Markers can display custom images, in which case they are usually referred to as “icons.” Markers and icons are objects of type <code>Marker</code>. You can set a custom icon within the marker’s constructor, or by calling <code>setIcon()</code> on the marker</i></p>
+<p>Our goal is to make every single ajax-call marker with different colors. Apart from the css filter method, We both know that img file cannot be modified by css. </p>
+<p><strong>Solution:</strong></p>
+<p>we can use the svg to make this happen.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Marker = <span class="function"><span class="keyword">function</span> (<span class="params">id, markerData, config </span>)</span>&#123;</span><br><span class="line">    <span class="comment">//this._config = config;</span></span><br><span class="line">    <span class="keyword">this</span>._id = id;</span><br><span class="line">    <span class="keyword">this</span>._data = &#123;&#125;;</span><br><span class="line">    <span class="keyword">this</span>._gMarker;</span><br><span class="line">    <span class="keyword">this</span>._color = config.markerColor; <span class="comment">// Each Ajax call to get different color</span></span><br><span class="line">    <span class="keyword">this</span>._name = config.name;</span><br><span class="line">    <span class="keyword">this</span>._type = config.type;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.prepareData(markerData, config);</span><br><span class="line">    <span class="keyword">this</span>.create(config);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Marker.prototype.create = <span class="function"><span class="keyword">function</span>(<span class="params">config</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line">  <span class="keyword">var</span> svgPath = <span class="string">"M41.54,17.652c0-9.012-7.296-16.318-16.289-16.318c-8.994,0-16.291,7.306-16.291,16.318c0,3.558,1.605,6.57,3.069,9.532c2.55,5.158,7.249,13.28,9.723,17.675c0.633,1.125,2.088,1.989,3.908,1.98c1.62-0.009,3.054-0.85,3.675-1.976c2.421-4.392,6.555-11.449,9.376-17.734C39.854,24.136,41.54,21.187,41.54,17.652z M25.25,12.312c2.949,0,5.34,2.391,5.34,5.34c0,2.948-2.391,5.339-5.34,5.339s-5.34-2.391-5.34-5.339C19.91,14.903,22.301,12.312,25.25,12.312z"</span>;</span><br><span class="line">  <span class="keyword">var</span> appMarkerIcon = &#123;</span><br><span class="line">    path: svgPath,</span><br><span class="line">    fillColor: <span class="keyword">this</span>._color,</span><br><span class="line">    fillOpacity: <span class="number">1</span>,</span><br><span class="line">    anchor: <span class="keyword">new</span> google.maps.Point(<span class="number">0</span>,<span class="number">0</span>),</span><br><span class="line">    strokeWeight: <span class="number">0</span>,</span><br><span class="line">    scale: <span class="number">0.6</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> markerOptions = &#123;</span><br><span class="line">      map: config.map,</span><br><span class="line">      position: <span class="keyword">new</span> google.maps.LatLng(<span class="keyword">this</span>._data.latitude, <span class="keyword">this</span>._data.longitude),</span><br><span class="line">      title: <span class="keyword">this</span>._data.title, </span><br><span class="line">      zIndex: <span class="built_in">Math</span>.round(-<span class="keyword">this</span>._data.latitude * <span class="number">100000</span>),</span><br><span class="line">      icon: config.icon ? config.icon : appMarkerIcon</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> marker = <span class="keyword">new</span> google.maps.Marker(markerOptions);</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>As we have our SVG in JavaScript now, it is easy to construct it dynamically~</strong></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/11/Input-and-Select-Compatibility-problems-with-IE-Edge/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2205,414 +2625,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/03/2020-Resolution/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Harold Yin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Harold's Zone">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/01/03/2020-Resolution/" itemprop="url">2020-Resolution</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-03T21:18:34+08:00">
-                2020-01-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Entertainment/" itemprop="url" rel="index">
-                    <span itemprop="name">Entertainment</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2020/01/03/2020-Resolution/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/01/03/2020-Resolution/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2020/01/03/2020-Resolution/" class="leancloud_visitors" data-flag-title="2020-Resolution">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  41
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="2020-Resolution"><a href="#2020-Resolution" class="headerlink" title="2020 Resolution"></a>2020 Resolution</h3><ul>
-<li><input disabled="" type="checkbox"> TOEFL 105</li>
-<li><input disabled="" type="checkbox"> GitHub 300 commits</li>
-<li><input disabled="" type="checkbox"> AWS Architect Solution Architect Associate</li>
-<li><input disabled="" type="checkbox"> Leetcode 300 questions</li>
-<li><input disabled="" type="checkbox"> Golang</li>
-<li><input disabled="" type="checkbox"> Python</li>
-<li><input disabled="" type="checkbox"> React</li>
-<li><input disabled="" type="checkbox"> 参与一个开源项目</li>
-<li><input disabled="" type="checkbox"> Promotion</li>
-<li><input disabled="" type="checkbox"> GRE 320</li>
-<li><input disabled="" type="checkbox"> 体重降回66KG（2020/1/1 73.8KG）</li>
-<li><input disabled="" type="checkbox"> 24 articles</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/24/Json-Array-Conbination/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Harold Yin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Harold's Zone">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/12/24/Json-Array-Conbination/" itemprop="url">Json Array Conbination</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-24T15:44:02+08:00">
-                2019-12-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Development/" itemprop="url" rel="index">
-                    <span itemprop="name">Development</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/12/24/Json-Array-Conbination/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/12/24/Json-Array-Conbination/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/12/24/Json-Array-Conbination/" class="leancloud_visitors" data-flag-title="Json Array Conbination">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  220
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h3><p>I’ve mentioned in the Article named <a href="https://haroldhl.github.io/2019/12/05/Apply-SQL-XML-Path/" target="_blank" rel="noopener">“Apply SQL XML PATH”</a> that how to convert the different synonym names into one record. Actually, I’ve met the same question with different scenarios. It comes from the same application of managing the supplier. Each supplier has different descriptors, Like Food, manufacture, Energy etc. I need export the data’s format like the following picture so I use the sql xml to make it happen.</p>
-<p><img src="https://i.loli.net/2020/01/20/SxW8E9gRLm7dTM2.png" alt="descriptors.png"></p>
-<p>It really depends on the Business Support Scenarios that choosing a suitable method to apply the same thing. For the chemical synonym’s project, eventually I wrote a function to convert this kind of json data.</p>
-<h4 id="how-to-accomplish-the-output-with-JavaScript"><a href="#how-to-accomplish-the-output-with-JavaScript" class="headerlink" title="how to accomplish the output with JavaScript"></a>how to accomplish the output with JavaScript</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr =[</span><br><span class="line">  &#123;<span class="string">'chemicalname'</span>:<span class="string">'Methane'</span>,<span class="string">'synonymname'</span>:<span class="string">'s1'</span>&#125;,</span><br><span class="line">  &#123;<span class="string">'chemicalname'</span>:<span class="string">'Methane'</span>,<span class="string">'synonymname'</span>:<span class="string">'s2'</span>&#125;,</span><br><span class="line">  &#123;<span class="string">'chemicalname'</span>:<span class="string">'Methane'</span>,<span class="string">'synonymname'</span>:<span class="string">'s3'</span>&#125;,</span><br><span class="line">  &#123;<span class="string">'chemicalname'</span>:<span class="string">'Carbon'</span>,<span class="string">'synonymname'</span>:<span class="string">'s4'</span>&#125;,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">FilterChemicalBySynonymName</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> newarray = [];</span><br><span class="line">  <span class="keyword">var</span> checkarray=[];</span><br><span class="line">  arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">value,keyindex</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(newarray.length==<span class="number">0</span>)&#123;</span><br><span class="line">      value.synonymname = value.synonymname;</span><br><span class="line">      newarray.push(value);</span><br><span class="line">      checkarray.push(value.chemicalname);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      newarray.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">valueIndex,keyindex</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(valueIndex.chemicalname==value.chemicalname)&#123;</span><br><span class="line">          valueIndex.synonymname += <span class="string">'|'</span>+ value.synonymname;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>($.inArray(value.chemicalname,checkarray)==<span class="number">-1</span>)&#123;</span><br><span class="line">          newarray.push(value);</span><br><span class="line">          checkarray.push(value.chemicalname);</span><br><span class="line">          $.unique(newarray);</span><br><span class="line">          $.unique(checkarray);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)          </span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">return</span> newarray;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">FilterChemicalBySynonymName(arr)</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><p><img src="https://i.loli.net/2020/01/20/ZHWuyePgfBp18lt.png" alt="jsonArray.png"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2667,7 +2679,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2678,7 +2690,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -2752,7 +2764,7 @@
           <h3 class="widget-title">Tag Cloud</h3>
           <div id="myCanvasContainer" class="widget tagcloud">
               <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AWS/" rel="tag">AWS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/" rel="tag">Cloud Computing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Development/" rel="tag">Development</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Devops/" rel="tag">Devops</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Entertainment/" rel="tag">Entertainment</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GPG/" rel="tag">GPG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/" rel="tag">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Homebrew/" rel="tag">Homebrew</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Json/" rel="tag">Json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PDLP/" rel="tag">PDLP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Plugin/" rel="tag">Plugin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a><span class="tag-list-count">1</span></li></ul>
+                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AWS/" rel="tag">AWS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/" rel="tag">Cloud Computing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Development/" rel="tag">Development</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Devops/" rel="tag">Devops</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Entertainment/" rel="tag">Entertainment</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GPG/" rel="tag">GPG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/" rel="tag">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Homebrew/" rel="tag">Homebrew</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Json/" rel="tag">Json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PDLP/" rel="tag">PDLP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Plugin/" rel="tag">Plugin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a><span class="tag-list-count">1</span></li></ul>
               </canvas>
           </div>
       </div>
@@ -2793,7 +2805,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Totalcount: 6.4k</span>
+  <span class="post-count">Totalcount: 7.3k</span>
 </div>
         
 <div class="busuanzi-count">
