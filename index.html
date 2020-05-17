@@ -250,6 +250,229 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/17/why-we-need-uuid/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Harold Yin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Harold's Zone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/17/why-we-need-uuid/" itemprop="url">Why we need uuid?</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-17T22:25:46+08:00">
+                2020-05-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/SQL/" itemprop="url" rel="index">
+                    <span itemprop="name">SQL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/05/17/why-we-need-uuid/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/05/17/why-we-need-uuid/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2020/05/17/why-we-need-uuid/" class="leancloud_visitors" data-flag-title="Why we need uuid?">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  261
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>UUID</strong></p>
+<p>A <strong>universally unique identifier</strong> (<strong>UUID</strong>) is a <a href="https://en.wikipedia.org/wiki/128-bit" target="_blank" rel="noopener">128-bit</a> number used to identify information in computer systems.</p>
+<ul>
+<li><em>why we need apply UUID?</em></li>
+</ul>
+<p>When generated according to the standard methods, UUIDs are for practical purposes unique. Their uniqueness does not depend on a central registration authority or coordination between the parties generating them, unlike most other numbering schemes. While the <a href="https://en.wikipedia.org/wiki/Probability" target="_blank" rel="noopener">probability</a> that a UUID will be duplicated is not zero, it is close enough to zero to be negligible.</p>
+<ul>
+<li><p>Versions</p>
+<ul>
+<li>Version 1 (date-time and MAC address)</li>
+<li>Version 2 (date-time and MAC address, DCE security version)</li>
+<li>Version 3 and 5 (namespace name-based)</li>
+<li>Version 4(random)</li>
+</ul>
+</li>
+<li><p>Use Scenarios</p>
+<ul>
+<li><p>As database keys</p>
+<p>UUIDs are commonly used as a <a href="https://en.wikipedia.org/wiki/Unique_key" target="_blank" rel="noopener">unique key</a> in <a href="https://en.wikipedia.org/wiki/Database" target="_blank" rel="noopener">database</a> tables. The NEWID function in <a href="https://en.wikipedia.org/wiki/Microsoft_SQL_Server" target="_blank" rel="noopener">Microsoft SQL Server</a> version 4 <a href="https://en.wikipedia.org/wiki/Transact-SQL" target="_blank" rel="noopener">Transact-SQL</a> returns standard random version-4 UUIDs, while the NEWSEQUENTIALID function returns 128-bit identifiers similar to UUIDs which are committed to ascend in sequence until the next system reboot.SYS_GUID function does not return a standard GUID, despite the name. Instead, it returns a 16-byte 128-bit RAW value based on a host identifier and a process or thread identifier, somewhat similar to a GUID. PostgreSQL contains a UUID datatype and can generate most versions of UUIDs through the use of functions from modules.MySQL provides a UUID function, which generates standard version-1 UUIDs.</p>
+</li>
+</ul>
+</li>
+<li><p>How can I generate a UUID？</p>
+<ul>
+<li>The NEWID function in <a href="https://en.wikipedia.org/wiki/Microsoft_SQL_Server" target="_blank" rel="noopener">Microsoft SQL Server</a> version 4 <a href="https://en.wikipedia.org/wiki/Transact-SQL" target="_blank" rel="noopener">Transact-SQL</a> returns standard random version-4 UUIDs</li>
+<li>Adobe Coldfusion function: createUUID() </li>
+<li>Python:  import uuid module</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/24/Asynchronous-Javascript-Example/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2341,290 +2564,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/07/LeetCode-SQL-Easy/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Harold Yin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Harold's Zone">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/01/07/LeetCode-SQL-Easy/" itemprop="url">LeetCode SQL [Easy]</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-07T20:25:56+08:00">
-                2020-01-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/SQL/" itemprop="url" rel="index">
-                    <span itemprop="name">SQL</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2020/01/07/LeetCode-SQL-Easy/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/01/07/LeetCode-SQL-Easy/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2020/01/07/LeetCode-SQL-Easy/" class="leancloud_visitors" data-flag-title="LeetCode SQL [Easy]">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  1k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  6
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="182-Duplicate-Emails"><a href="#182-Duplicate-Emails" class="headerlink" title="#182 Duplicate Emails"></a>#182 Duplicate Emails</h4><p>Write a SQL query to find all duplicate emails in a table named <code>Person</code>.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">+<span class="comment">----+---------+</span></span><br><span class="line">| Id | Email   |</span><br><span class="line">+<span class="comment">----+---------+</span></span><br><span class="line">| 1  | a@b.com |</span><br><span class="line">| 2  | c@d.com |</span><br><span class="line">| 3  | a@b.com |</span><br><span class="line">+<span class="comment">----+---------+</span></span><br></pre></td></tr></table></figure>
-
-<p>For example, your query should return the following for the above table:</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">+<span class="comment">---------+</span></span><br><span class="line">| Email   |</span><br><span class="line">+<span class="comment">---------+</span></span><br><span class="line">| a@b.com |</span><br><span class="line">+<span class="comment">---------+</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> EMail </span><br><span class="line"><span class="keyword">FROM</span> Person</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> Email</span><br><span class="line"><span class="keyword">having</span> <span class="keyword">count</span>(*)&gt;<span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="196-Delete-Duplicate-Emails"><a href="#196-Delete-Duplicate-Emails" class="headerlink" title="#196 Delete Duplicate Emails"></a>#196 Delete Duplicate Emails</h4><p>Write a SQL query to <strong>delete</strong> all duplicate email entries in a table named <code>Person</code>, keeping only unique emails based on its <em>smallest</em> <strong>Id</strong>.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">+<span class="comment">----+------------------+</span></span><br><span class="line">| Id | Email            |</span><br><span class="line">+<span class="comment">----+------------------+</span></span><br><span class="line">| 1  | john@example.com |</span><br><span class="line">| 2  | bob@example.com  |</span><br><span class="line">| 3  | john@example.com |</span><br><span class="line">+<span class="comment">----+------------------+</span></span><br><span class="line">Id is the primary key column for this table.</span><br></pre></td></tr></table></figure>
-
-<p>For example, after running your query, the above <code>Person</code> table should have the following rows:</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">+<span class="comment">----+------------------+</span></span><br><span class="line">| Id | Email            |</span><br><span class="line">+<span class="comment">----+------------------+</span></span><br><span class="line">| 1  | john@example.com |</span><br><span class="line">| 2  | bob@example.com  |</span><br><span class="line">+<span class="comment">----+------------------+</span></span><br></pre></td></tr></table></figure>
-<h5 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h5><ul>
-<li><p>First Step：</p>
-<p>find out the min id with Non-repetitive Email Data,</p>
-<p>using the where clause to delete the duplicate Email</p>
-</li>
-<li><p>Second Step:</p>
-<p>Select all the data after delete clause</p>
-</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> Person</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">id</span> <span class="keyword">not</span> <span class="keyword">in</span></span><br><span class="line">(<span class="keyword">SELECT</span> * </span><br><span class="line"><span class="keyword">FROM</span> (<span class="keyword">SELECT</span> <span class="keyword">Min</span>(<span class="keyword">id</span>) <span class="keyword">from</span> Person <span class="keyword">GROUP</span> <span class="keyword">BY</span> Email )<span class="keyword">AS</span> Temp</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> Person</span><br></pre></td></tr></table></figure>
-
-<h5 id="181-Employees-Earning-More-Than-Their-Managers"><a href="#181-Employees-Earning-More-Than-Their-Managers" class="headerlink" title="#181 Employees Earning More Than Their Managers"></a>#181 Employees Earning More Than Their Managers</h5><p>The <code>Employee</code> table holds all employees including their managers. Every employee has an Id, and there is also a column for the manager Id.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">+<span class="comment">----+-------+--------+-----------+</span></span><br><span class="line">| Id | Name  | Salary | ManagerId |</span><br><span class="line">+<span class="comment">----+-------+--------+-----------+</span></span><br><span class="line">| 1  | Joe   | 70000  | 3         |</span><br><span class="line">| 2  | Henry | 80000  | 4         |</span><br><span class="line">| 3  | Sam   | 60000  | NULL      |</span><br><span class="line">| 4  | Max   | 90000  | NULL      |</span><br><span class="line">+<span class="comment">----+-------+--------+-----------+</span></span><br></pre></td></tr></table></figure>
-
-<p>Given the <code>Employee</code> table, write a SQL query that finds out employees who earn more than their managers. For the above table, Joe is the only employee who earns more than his manager.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">+<span class="comment">----------+</span></span><br><span class="line">| Employee |</span><br><span class="line">+<span class="comment">----------+</span></span><br><span class="line">| Joe      |</span><br><span class="line">+<span class="comment">----------+</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution"></a>Solution</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">Name</span> <span class="keyword">AS</span> Employee</span><br><span class="line"><span class="keyword">FROM</span> Employee A</span><br><span class="line"><span class="keyword">WHERE</span> ManagerId = (<span class="keyword">SELECT</span> <span class="keyword">Id</span> <span class="keyword">FROM</span> Employee B <span class="keyword">where</span> A.ManagerId = B.id <span class="keyword">AND</span> A.Salary &gt; B.Salary)</span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="183-Customers-who-never-Order"><a href="#183-Customers-who-never-Order" class="headerlink" title="183 Customers who never Order"></a>183 Customers who never Order</h5><p>Suppose that a website contains two tables, the <code>Customers</code> table and the <code>Orders</code> table. Write a SQL query to find all customers who never order anything.</p>
-<p>Table: <code>Customers</code>.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">+<span class="comment">----+-------+</span></span><br><span class="line">| Id | Name  |</span><br><span class="line">+<span class="comment">----+-------+</span></span><br><span class="line">| 1  | Joe   |</span><br><span class="line">| 2  | Henry |</span><br><span class="line">| 3  | Sam   |</span><br><span class="line">| 4  | Max   |</span><br><span class="line">+<span class="comment">----+-------+</span></span><br></pre></td></tr></table></figure>
-
-<p>Table: <code>Orders</code>.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">+<span class="comment">----+------------+</span></span><br><span class="line">| Id | CustomerId |</span><br><span class="line">+<span class="comment">----+------------+</span></span><br><span class="line">| 1  | 3          |</span><br><span class="line">| 2  | 1          |</span><br><span class="line">+<span class="comment">----+------------+</span></span><br></pre></td></tr></table></figure>
-
-<p>Using the above tables as example, return the following:</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">+<span class="comment">-----------+</span></span><br><span class="line">| Customers |</span><br><span class="line">+<span class="comment">-----------+</span></span><br><span class="line">| Henry     |</span><br><span class="line">| Max       |</span><br><span class="line">+<span class="comment">-----------+</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="Solution-3"><a href="#Solution-3" class="headerlink" title="Solution"></a>Solution</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">NAME</span> <span class="keyword">AS</span> Customers</span><br><span class="line"><span class="keyword">FROM</span> Customers C</span><br><span class="line"><span class="keyword">WHERE</span> C.Id <span class="keyword">not</span> <span class="keyword">in</span> (<span class="keyword">SELECT</span> CustomerId <span class="keyword">FROM</span> Orders)</span><br></pre></td></tr></table></figure>
-
-<h4 id="197-Rising-Temperature"><a href="#197-Rising-Temperature" class="headerlink" title="197 Rising Temperature"></a>197 Rising Temperature</h4><p>Given a <code>Weather</code> table, write a SQL query to find all dates’ Ids with higher temperature compared to its previous (yesterday’s) dates.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">+<span class="comment">---------+------------------+------------------+</span></span><br><span class="line">| Id(INT) | RecordDate(DATE) | Temperature(INT) |</span><br><span class="line">+<span class="comment">---------+------------------+------------------+</span></span><br><span class="line">|       1 |       2015-01-01 |               10 |</span><br><span class="line">|       2 |       2015-01-02 |               25 |</span><br><span class="line">|       3 |       2015-01-03 |               20 |</span><br><span class="line">|       4 |       2015-01-04 |               30 |</span><br><span class="line">+<span class="comment">---------+------------------+------------------+</span></span><br></pre></td></tr></table></figure>
-
-<p>For example, return the following Ids for the above <code>Weather</code> table:</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">+<span class="comment">----+</span></span><br><span class="line">| Id |</span><br><span class="line">+<span class="comment">----+</span></span><br><span class="line">|  2 |</span><br><span class="line">|  4 |</span><br><span class="line">+<span class="comment">----+</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="Solution-4"><a href="#Solution-4" class="headerlink" title="Solution"></a>Solution</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> a.id</span><br><span class="line"><span class="keyword">from</span> weather a</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> weather b</span><br><span class="line"><span class="keyword">on</span> a.id=(b.id+<span class="number">1</span>)</span><br><span class="line"><span class="keyword">where</span> a.temperature&gt;b.temperature</span><br></pre></td></tr></table></figure>
-
-<h5 id="620-Not-Boring-Movies"><a href="#620-Not-Boring-Movies" class="headerlink" title="#620 Not Boring Movies"></a>#620 Not Boring Movies</h5><p>X city opened a new cinema, many people would like to go to this cinema. The cinema also gives out a poster indicating the movies’ ratings and descriptions.<br>Please write a SQL query to output movies with an odd numbered ID and a description that is not ‘boring’. Order the result by rating.</p>
-<p>For example, table cinema:</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">+<span class="comment">---------+-----------+--------------+-----------+</span></span><br><span class="line">|   id    | movie     |  description |  rating   |</span><br><span class="line">+<span class="comment">---------+-----------+--------------+-----------+</span></span><br><span class="line">|   1     | War       |   great 3D   |   8.9     |</span><br><span class="line">|   2     | Science   |   fiction    |   8.5     |</span><br><span class="line">|   3     | irish     |   boring     |   6.2     |</span><br><span class="line">|   4     | Ice song  |   Fantacy    |   8.6     |</span><br><span class="line">|   5     | House card|   Interesting|   9.1     |</span><br><span class="line">+<span class="comment">---------+-----------+--------------+-----------+</span></span><br></pre></td></tr></table></figure>
-<p>For the example above, the output should be:</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">+<span class="comment">---------+-----------+--------------+-----------+</span></span><br><span class="line">|   id    | movie     |  description |  rating   |</span><br><span class="line">+<span class="comment">---------+-----------+--------------+-----------+</span></span><br><span class="line">|   5     | House card|   Interesting|   9.1     |</span><br><span class="line">|   1     | War       |   great 3D   |   8.9     |</span><br><span class="line">+<span class="comment">---------+-----------+--------------+-----------+</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="Solution-5"><a href="#Solution-5" class="headerlink" title="Solution"></a>Solution</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">id</span>, movie, description,rating</span><br><span class="line"><span class="keyword">FROM</span> cinema</span><br><span class="line"><span class="keyword">where</span> <span class="keyword">id</span>%<span class="number">2</span> =<span class="number">1</span> <span class="keyword">and</span> description != <span class="string">'boring'</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> rating <span class="keyword">DESC</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="627-Swap-Salary"><a href="#627-Swap-Salary" class="headerlink" title="#627 Swap Salary"></a>#627 Swap Salary</h5><p>Given a table salary, such as the one below, that has m=male and f=female values. Swap all f and m values (i.e., change all f values to m and vice versa) with a single update statement and no intermediate temp table.</p>
-<p>Note that you must write a single update statement, DO NOT write any select statement for this problem.</p>
-<p>Example:</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">| id | name | sex | salary |</span><br><span class="line">|<span class="comment">----|------|-----|--------|</span></span><br><span class="line">| 1  | A    | m   | 2500   |</span><br><span class="line">| 2  | B    | f   | 1500   |</span><br><span class="line">| 3  | C    | m   | 5500   |</span><br><span class="line">| 4  | D    | f   | 500    |</span><br><span class="line">After running your <span class="keyword">update</span> <span class="keyword">statement</span>, the above salary <span class="keyword">table</span> should have the <span class="keyword">following</span> <span class="keyword">rows</span>:</span><br><span class="line">| <span class="keyword">id</span> | <span class="keyword">name</span> | sex | salary |</span><br><span class="line">|<span class="comment">----|------|-----|--------|</span></span><br><span class="line">| <span class="number">1</span>  | A    | f   | <span class="number">2500</span>   |</span><br><span class="line">| <span class="number">2</span>  | B    | m   | <span class="number">1500</span>   |</span><br><span class="line">| <span class="number">3</span>  | C    | f   | <span class="number">5500</span>   |</span><br><span class="line">| <span class="number">4</span>  | D    | m   | <span class="number">500</span>    |</span><br></pre></td></tr></table></figure>
-<h4 id="Solution-6"><a href="#Solution-6" class="headerlink" title="Solution"></a>Solution</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> salary</span><br><span class="line"><span class="keyword">SET</span></span><br><span class="line">    sex = <span class="keyword">CASE</span> sex</span><br><span class="line">        <span class="keyword">WHEN</span> <span class="string">'m'</span> <span class="keyword">THEN</span> <span class="string">'f'</span></span><br><span class="line">        <span class="keyword">ELSE</span> <span class="string">'m'</span></span><br><span class="line">    <span class="keyword">END</span>;</span><br></pre></td></tr></table></figure>
-
-<h5 id="1179-Reformat-Department-Table"><a href="#1179-Reformat-Department-Table" class="headerlink" title="#1179 Reformat Department Table"></a>#1179 Reformat Department Table</h5><p>Table: Department</p>
-<p>+—————+———+<br>| Column Name   | Type    |<br>+—————+———+<br>| id            | int     |<br>| revenue       | int     |<br>| month         | varchar |<br>+—————+———+<br>(id, month) is the primary key of this table.<br>The table has information about the revenue of each department per month.<br>The month has values in [“Jan”,”Feb”,”Mar”,”Apr”,”May”,”Jun”,”Jul”,”Aug”,”Sep”,”Oct”,”Nov”,”Dec”].</p>
-<p>Write an SQL query to reformat the table such that there is a department id column and a revenue column for each month.</p>
-<p>The query result format is in the following example:</p>
-<p>Department table:</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">+<span class="comment">------+---------+-------+</span></span><br><span class="line">| id   | revenue | month |</span><br><span class="line">+<span class="comment">------+---------+-------+</span></span><br><span class="line">| 1    | 8000    | Jan   |</span><br><span class="line">| 2    | 9000    | Jan   |</span><br><span class="line">| 3    | 10000   | Feb   |</span><br><span class="line">| 1    | 7000    | Feb   |</span><br><span class="line">| 1    | 6000    | Mar   |</span><br><span class="line">+<span class="comment">------+---------+-------+</span></span><br></pre></td></tr></table></figure>
-<p>Result table:</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">+<span class="comment">------+-------------+-------------+-------------+-----+-------------+</span></span><br><span class="line">| id   | Jan_Revenue | Feb_Revenue | Mar_Revenue | ... | Dec_Revenue |</span><br><span class="line">+<span class="comment">------+-------------+-------------+-------------+-----+-------------+</span></span><br><span class="line">| 1    | 8000        | 7000        | 6000        | ... | null        |</span><br><span class="line">| 2    | 9000        | null        | null        | ... | null        |</span><br><span class="line">| 3    | null        | 10000       | null        | ... | null        |</span><br><span class="line">+<span class="comment">------+-------------+-------------+-------------+-----+-------------+</span></span><br></pre></td></tr></table></figure>
-<p>Note that the result table has 13 columns (1 for the department id + 12 for the months).</p>
-<h4 id="Soltion"><a href="#Soltion" class="headerlink" title="Soltion"></a>Soltion</h4><p>select Department.id,<br>SUM(CASE WHEN Department.month  =’Jan’ THEN Department.revenue END) as Jan_Revenue,<br>SUM(CASE WHEN Department.month  =’Feb’ THEN Department.revenue  END) AS Feb_Revenue,<br>SUM(CASE WHEN Department.month  =’Mar’ THEN Department.revenue  END) AS Mar_Revenue,<br>SUM(CASE WHEN Department.month  =’Apr’ THEN Department.revenue  END) AS Apr_Revenue,<br>SUM(CASE WHEN Department.month  =’May’ THEN Department.revenue  END) AS May_Revenue,<br>SUM(CASE WHEN Department.month  =’Jun’ THEN Department.revenue  END) AS Jun_Revenue,<br>SUM(CASE WHEN Department.month  =’Jul’ THEN Department.revenue  END) AS Jul_Revenue,<br>SUM(CASE WHEN Department.month  =’Aug’ THEN Department.revenue  END) AS Aug_Revenue,<br>SUM(CASE WHEN Department.month  =’Sep’ THEN Department.revenue  END) AS Sep_Revenue,<br>SUM(CASE WHEN Department.month  =’Oct’ THEN Department.revenue  END) AS Oct_Revenue,<br>SUM(CASE WHEN Department.month  =’Nov’ THEN Department.revenue  END) AS Nov_Revenue,<br>Sum(CASE WHEN Department.month  =’Dec’ THEN Department.revenue  END) AS Dec_Revenue<br>From Department<br>GROUP BY Department.id</p>
-<h4 id="The-free-questions-are-done-the-remaining-questions-are-paid-questions-2020-2-19"><a href="#The-free-questions-are-done-the-remaining-questions-are-paid-questions-2020-2-19" class="headerlink" title="The free questions are done, the remaining questions are paid questions 2020/2/19"></a>The free questions are done, the remaining questions are paid questions 2020/2/19</h4>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2679,7 +2618,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2690,7 +2629,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -2701,7 +2640,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -2764,7 +2703,7 @@
           <h3 class="widget-title">Tag Cloud</h3>
           <div id="myCanvasContainer" class="widget tagcloud">
               <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AWS/" rel="tag">AWS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/" rel="tag">Cloud Computing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Development/" rel="tag">Development</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Devops/" rel="tag">Devops</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Entertainment/" rel="tag">Entertainment</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GPG/" rel="tag">GPG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/" rel="tag">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Homebrew/" rel="tag">Homebrew</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Json/" rel="tag">Json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PDLP/" rel="tag">PDLP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Plugin/" rel="tag">Plugin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a><span class="tag-list-count">1</span></li></ul>
+                  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AWS/" rel="tag">AWS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cloud-Computing/" rel="tag">Cloud Computing</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Development/" rel="tag">Development</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Devops/" rel="tag">Devops</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Entertainment/" rel="tag">Entertainment</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GPG/" rel="tag">GPG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/" rel="tag">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Homebrew/" rel="tag">Homebrew</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Json/" rel="tag">Json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PDLP/" rel="tag">PDLP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Plugin/" rel="tag">Plugin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UUID/" rel="tag">UUID</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/encryption/" rel="tag">encryption</a><span class="tag-list-count">1</span></li></ul>
               </canvas>
           </div>
       </div>
@@ -2805,7 +2744,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">Totalcount: 7.3k</span>
+  <span class="post-count">Totalcount: 7.6k</span>
 </div>
         
 <div class="busuanzi-count">
